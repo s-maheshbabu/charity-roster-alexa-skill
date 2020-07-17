@@ -6,6 +6,7 @@ const APL_DOCUMENT_VERSION = APL_CONSTANTS.APL_DOCUMENT_VERSION;
 const skillInfoDocument = require("apl/document/SkillInfoDocument.json");
 const skillInfoDatasource = require("apl/data/SkillInfoDatasource");
 
+// Probably not needed?
 module.exports = LaunchRequestHandler = {
   canHandle(handlerInput) {
     return false;

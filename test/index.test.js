@@ -9,7 +9,6 @@ const decache = require("decache");
 const extraneousPhrases = require("constants/PhrasesToStrip");
 const STATES = require("constants/States").states;
 const APL_CONSTANTS = require("constants/APL");
-const SpellChecker = require("spellcheck/SpellChecker");
 
 const APL_DOCUMENT_TYPE = APL_CONSTANTS.APL_DOCUMENT_TYPE;
 const APL_DOCUMENT_VERSION = APL_CONSTANTS.APL_DOCUMENT_VERSION;
@@ -24,10 +23,6 @@ const skillInfoDocument = require("apl/document/SkillInfoDocument.json");
 const skillInfoDatasource = require("apl/data/SkillInfoDatasource");
 
 const context = {};
-
-before(async () => {
-  await SpellChecker.init();
-});
 
 afterEach(function () {
   decache("../test-data/event");
