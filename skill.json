@@ -1,0 +1,30 @@
+{
+    "skillManifest": {
+        "publishingInformation": {
+            "locales": {
+                "en-US": {
+                    "summary": "Sample Short Description",
+                    "examplePhrases": [
+                        "Alexa, open charity roster",
+                        "Alexa, open charity roster and tell me about some human rights charities",
+                        "Alexa, open charity roster and make a donation to American Cancer Research"
+                    ],
+                    "name": "Charity Roster",
+                    "description": "A skill to navigate the list of charities that can be supported through Alexa."
+                }
+            },
+            "isAvailableWorldwide": true,
+            "testingInstructions": "Sample Testing Instructions.",
+            "category": "KNOWLEDGE_AND_TRIVIA",
+            "distributionCountries": []
+        },
+        "apis": {
+            "custom": {
+                "endpoint": {
+                    "sourceDir": "lambda/custom"
+                }
+            }
+        },
+        "manifestVersion": "1.0"
+    }
+}
