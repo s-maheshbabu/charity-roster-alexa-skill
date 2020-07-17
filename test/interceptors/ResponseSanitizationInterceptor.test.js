@@ -7,6 +7,8 @@ const APL_CONSTANTS = require("constants/APL");
 const APL_DOCUMENT_TYPE = APL_CONSTANTS.APL_DOCUMENT_TYPE;
 const APL_DOCUMENT_VERSION = APL_CONSTANTS.APL_DOCUMENT_VERSION;
 
+/*
+These tests should be reenabled once APL support is enabled.
 it("doesn't contain a card but contains an APL directive in the response if the device supports Alexa Presentation Language Interface", async () => {
   const event = require("../../test-data/apl_supported_intent_event");
 
@@ -29,3 +31,4 @@ it("doesn't contain an APL directive but contains a card if the device does not 
   expect(Object.keys(response.response.card)).to.have.lengthOf(3);
   assert.notExists(response.response.directives);
 });
+*/
