@@ -26,11 +26,11 @@ module.exports = HelpIntentHandler = {
         version: APL_DOCUMENT_VERSION,
         document: skillInfoDocument,
         datasources: skillInfoDatasource(
-          `I can help you with the pronunciations of English words and phrases. Just spell the word you want me to pronounce. For example, you can say - `,
-          `Alexa, open pronunciations
-Alexa, ask pronunciations to pronounce G. Y. R. O.
-Alexa, open pronunciations and help me pronounce W. A. L. T.
-Alexa, pronounce the word D. O. U. B. T.`
+          `I can help you navigate charities. For example, you can say - `,
+          `Alexa, open charity roster
+Alexa, ask charity roster blah blah..
+Alexa, ask charity roster blah blah..
+Alexa, ask charity roster blah blah..`
         )
       })
       .getResponse();
