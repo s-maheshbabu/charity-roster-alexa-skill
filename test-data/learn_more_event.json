@@ -1,0 +1,122 @@
+{
+    "version": "1.0",
+    "session": {
+        "new": true,
+        "sessionId": "amzn1.echo-api.session.4375982b-8aa0-42a8-9056-a99db0a907ef",
+        "application": {
+            "applicationId": "amzn1.ask.skill.b4e9defb-8d70-4610-a2b7-09ff301be7fd"
+        },
+        "attributes": {
+            "charities": [
+                "30 For The Kids Inc.",
+                "A Kid Again"
+            ],
+            "isAPLSupported": true,
+            "currentCharity": "1UpOnCancer"
+        },
+        "user": {
+            "userId": "amzn1.ask.account.AENSSKIJ5T2JVRF5CW7JNZQ7UPRQWCECCTJMHKRGPOUFT4MER3VH44UL2S4QEHEL5NAIFDWMNU4J44QYNLU56YI7SWRPO5KUR55E2N6KQQ3CMPVNC6WWPT2CHQCJX2ESTRPH6C7IFT2NRJKU2FXHPW3E5DQT2EW5ZI5AQVN7AT2LBF7QEJ32FMRVCQ7DG3AJFVU46THVRMW3HKI"
+        }
+    },
+    "context": {
+        "Alexa.Presentation.APL": {
+            "token": "",
+            "version": "APL_WEB_RENDERER_GANDALF",
+            "componentsVisibleOnScreen": [
+                {
+                    "uid": ":1289",
+                    "position": "1024x600+0+0:0",
+                    "type": "mixed",
+                    "tags": {
+                        "viewport": {
+                            "canGoBack": null
+                        }
+                    },
+                    "entities": []
+                }
+            ]
+        },
+        "System": {
+            "application": {
+                "applicationId": "amzn1.ask.skill.b4e9defb-8d70-4610-a2b7-09ff301be7fd"
+            },
+            "user": {
+                "userId": "amzn1.ask.account.AENSSKIJ5T2JVRF5CW7JNZQ7UPRQWCECCTJMHKRGPOUFT4MER3VH44UL2S4QEHEL5NAIFDWMNU4J44QYNLU56YI7SWRPO5KUR55E2N6KQQ3CMPVNC6WWPT2CHQCJX2ESTRPH6C7IFT2NRJKU2FXHPW3E5DQT2EW5ZI5AQVN7AT2LBF7QEJ32FMRVCQ7DG3AJFVU46THVRMW3HKI"
+            },
+            "device": {
+                "deviceId": "amzn1.ask.device.AHBZSRMZ2SQKACKAWQ5COWEOAXSI3SIGRQL5TGLUAF53OLW4EEG5D4B32H7JLB7PYIIMAQTT2CGAP5TR63QOQOZ4IRK4DCZHY665DHYD2BRS2AR6GFJVU33RXMZUFAQINKY5FHKP26JOTBSNTLOZIHEW6DQA",
+                "supportedInterfaces": {
+                    "Alexa.Presentation.APL": {
+                        "runtime": {
+                            "maxVersion": "1.4"
+                        }
+                    }
+                }
+            },
+            "apiEndpoint": "https://api.amazonalexa.com",
+            "apiAccessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjEifQ.eyJhdWQiOiJodHRwczovL2FwaS5hbWF6b25hbGV4YS5jb20iLCJpc3MiOiJBbGV4YVNraWxsS2l0Iiwic3ViIjoiYW16bjEuYXNrLnNraWxsLmI0ZTlkZWZiLThkNzAtNDYxMC1hMmI3LTA5ZmYzMDFiZTdmZCIsImV4cCI6MTU5NTE5Mzk4NywiaWF0IjoxNTk1MTkzNjg3LCJuYmYiOjE1OTUxOTM2ODcsInByaXZhdGVDbGFpbXMiOnsiY29udGV4dCI6IkFBQUFBQUFBQUFBK2RFR0lxQUEvSnoyQXNWMnlJWFlDSkFFQUFBQUFBQUJBQzJuTWRLL0k1YTZLNjhRUnFDY1BTNEJpRDJwU2VhdGpVUTUyNTJReWQ0Sy9qc1JiOWJHVlNBU0Zaems2L0p0VnVmTTBUZ3FBY1RLWFZUZ3ZtS1IyRzFqaFdQenU4UGpud0QvVUdvUVJKVlNwazFhREhJdzlJZmxRakd4Z2FqY0prTlBVU0pYQVR4U0dOd1IreE9qMHZ6ZHo3RnNZazNScjFNZGx0MU94cjVHM29qL25veEVoVlVGWWpNNzV5NTJGcm5lYmZoNDhENG5oQytJR1Nkdzlma01iUk1jS1NvWmU5ZGZnYW85TVFRQk44bVpjRTZ6L2l4WXd4T2Q2dWZtVWNZWW1UWXh5VngyVEg3TzFuOWp0UEJaa3h5b29uWkR1Qkl4aEVuYWhzSmc1QmZoMmJyWFY4eTVMeGlyM2ZWU3NlbE5iR0JNYzlUdFhhQkxXemJNVm91djcwWEFUS2xzamQ1MG5iUXdBY3dKLzF1Umd1ZUhsUWZwSzZEVFZNLzl6NUNjaCIsImNvbnNlbnRUb2tlbiI6bnVsbCwiZGV2aWNlSWQiOiJhbXpuMS5hc2suZGV2aWNlLkFIQlpTUk1aMlNRS0FDS0FXUTVDT1dFT0FYU0kzU0lHUlFMNVRHTFVBRjUzT0xXNEVFRzVENEIzMkg3SkxCN1BZSUlNQVFUVDJDR0FQNVRSNjNRT1FPWjRJUks0RENaSFk2NjVESFlEMkJSUzJBUjZHRkpWVTMzUlhNWlVGQVFJTktZNUZIS1AyNkpPVEJTTlRMT1pJSEVXNkRRQSIsInVzZXJJZCI6ImFtem4xLmFzay5hY2NvdW50LkFFTlNTS0lKNVQySlZSRjVDVzdKTlpRN1VQUlFXQ0VDQ1RKTUhLUkdQT1VGVDRNRVIzVkg0NFVMMlM0UUVIRUw1TkFJRkRXTU5VNEo0NFFZTkxVNTZZSTdTV1JQTzVLVVI1NUUyTjZLUVEzQ01QVk5DNldXUFQyQ0hRQ0pYMkVTVFJQSDZDN0lGVDJOUkpLVTJGWEhQVzNFNURRVDJFVzVaSTVBUVZON0FUMkxCRjdRRUozMkZNUlZDUTdERzNBSkZWVTQ2VEhWUk1XM0hLSSJ9fQ.Q--6y88ygEsr_y4VJi1Yj7Sw73bHQE7sulbybv-3bOwqCzLZLlC7M6xfLX1VgqSpEKwCg2F_buAlKN6p9ecglsmMRiSq87fxsu9pwqjdmgCS8c757baCNCRsSxh_xj9-P_w51LIt7QbzZSmxEI_VEf02smntE0dPLvdqsf-FHddR0Ju9A8OFqVq6wXin2wM3uivqpv0V8R1BnxneRvgeltL12P0PEnoywz1iaSIuiUPS03MQs4a_95uX_jPTMBihTMzZXc6X_XcHyB2XZceyduJQLNdWTpzJSbsC-dsAlY063XHtrwTeLL1BxpOKC_Re9xGogyHHgs3fhiUbU-lzKA"
+        },
+        "Viewport": {
+            "experiences": [
+                {
+                    "arcMinuteWidth": 246,
+                    "arcMinuteHeight": 144,
+                    "canRotate": false,
+                    "canResize": false
+                }
+            ],
+            "mode": "HUB",
+            "shape": "RECTANGLE",
+            "pixelWidth": 1024,
+            "pixelHeight": 600,
+            "dpi": 160,
+            "currentPixelWidth": 1024,
+            "currentPixelHeight": 600,
+            "touch": [
+                "SINGLE"
+            ],
+            "video": {
+                "codecs": [
+                    "H_264_42",
+                    "H_264_41"
+                ]
+            }
+        },
+        "Viewports": [
+            {
+                "type": "APL",
+                "id": "main",
+                "shape": "RECTANGLE",
+                "dpi": 160,
+                "presentationType": "STANDARD",
+                "canRotate": false,
+                "configuration": {
+                    "current": {
+                        "mode": "HUB",
+                        "video": {
+                            "codecs": [
+                                "H_264_42",
+                                "H_264_41"
+                            ]
+                        },
+                        "size": {
+                            "type": "DISCRETE",
+                            "pixelWidth": 1024,
+                            "pixelHeight": 600
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "request": {
+        "type": "IntentRequest",
+        "requestId": "amzn1.echo-api.request.25bd622e-61aa-4c3f-8c4f-a03ca81ec7be",
+        "locale": "en-US",
+        "timestamp": "2020-07-19T21:21:27Z",
+        "intent": {
+            "name": "LearnMoreIntent",
+            "confirmationStatus": "NONE"
+        }
+    }
+}
