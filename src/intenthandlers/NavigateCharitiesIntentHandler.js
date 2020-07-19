@@ -1,5 +1,3 @@
-const STATES = require("constants/States").states;
-
 const charities = require("utilities/Charities");
 const nextCharityIntentHandler = require("intenthandlers/NextCharityIntentHandler");
 
@@ -26,7 +24,6 @@ function navigateCharities(handlerInput) {
 
   const sessionAttributes = attributesManager.getSessionAttributes() || {};
   sessionAttributes.charities = charities.getRandomCharities();
-  sessionAttributes.state = STATES.CURRENT_CHARITY_EIN;
   attributesManager.setSessionAttributes(sessionAttributes);
 
   return nextCharityIntentHandler.handle(handlerInput);

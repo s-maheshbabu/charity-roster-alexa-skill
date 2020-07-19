@@ -1,4 +1,4 @@
-const data = require('../../resources/data/data.json');
+const charities = require('../../resources/data/UseThisDataForNow.json');
 
 /**
  * Checks the lower case version and the title case version of
@@ -7,7 +7,7 @@ const data = require('../../resources/data/data.json');
  * @param {*} input word whose spelling is to be checked.
  */
 module.exports.getRandomCharities = () => {
-    return [data.charities[0].name, data.charities[3].name, data.charities[4].name];
+    return [charities[0].name, charities[1].name, charities[2].name];
 };
 
 // --------------- Utility functions -----------------------

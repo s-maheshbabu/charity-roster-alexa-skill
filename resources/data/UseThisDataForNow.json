@@ -1,0 +1,121 @@
+[
+    {
+        "name": "1UpOnCancer",
+        "metadata": {
+            "charityNavigatorURL": "https://www.charitynavigator.org/?bay=search.profile&ein=474970701&utm_source=DataAPI&utm_content=6bc9f3c8",
+            "mission": null,
+            "websiteURL": null,
+            "tagLine": null,
+            "charityName": "1uponcancer",
+            "ein": "474970701",
+            "mailingAddress": {
+                "country": null,
+                "stateOrProvince": "TX",
+                "city": "MURPHY",
+                "postalCode": "75094-3522",
+                "streetAddress1": "342 WILLOW WOOD ST",
+                "streetAddress2": null
+            }
+        }
+    },
+    {
+        "name": "30 For The Kids Inc.",
+        "metadata": {
+            "charityNavigatorURL": "https://www.charitynavigator.org/?bay=search.profile&ein=832076507&utm_source=DataAPI&utm_content=6bc9f3c8",
+            "mission": null,
+            "websiteURL": null,
+            "tagLine": null,
+            "charityName": "30 for the Kids Inc.",
+            "ein": "832076507",
+            "mailingAddress": {
+                "country": null,
+                "stateOrProvince": "MO",
+                "city": "SAINT LOUIS",
+                "postalCode": "63123-7207",
+                "streetAddress1": "9779 GREEN PARK INDUSTRIAL DR",
+                "streetAddress2": null
+            }
+        }
+    },
+    {
+        "name": "A Kid Again",
+        "metadata": {
+            "charityNavigatorURL": "https://www.charitynavigator.org/?bay=search.summary&orgid=9239&utm_source=DataAPI&utm_content=6bc9f3c8",
+            "mission": "Founded in 1995 as Adventures For Wish Kids, A Kid Again provides hope, happiness and healing to families raising kids with life threatening illness. We provide fun filled activities and destination events, which we call adventures at no cost to families. Our year round adventures foster laughter, joy, normalcy and supportive networking opportunities. Our family centric approach allows for a broader more comprehensive impact on the effects of coping with a life threatening illness in the family. Our events allow families to give illness a GIANT Time Out!",
+            "websiteURL": "http://www.akidagain.org",
+            "tagLine": "Giving illness a GIANT Time Out!",
+            "charityName": "A Kid Again",
+            "ein": "311440073",
+            "category": {
+                "categoryName": "Health",
+                "categoryID": 5,
+                "charityNavigatorURL": "https://www.charitynavigator.org/index.cfm?bay=search.categories&categoryid=5&utm_source=DataAPI&utm_content=6bc9f3c8",
+                "image": "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/categories/environment.png?utm_source=DataAPI&utm_content=6bc9f3c8"
+            },
+            "cause": {
+                "causeID": 34,
+                "causeName": "Patient and Family Support",
+                "charityNavigatorURL": "https://www.charitynavigator.org/index.cfm?bay=search.results&cgid=5&cuid=34&utm_source=DataAPI&utm_content=6bc9f3c8",
+                "image": "https://d20umu42aunjpx.cloudfront.net/_gfx_/causes/small/patient_and_family_support.gif?utm_source=DataAPI&utm_content=6bc9f3c8"
+            },
+            "mailingAddress": {
+                "country": null,
+                "stateOrProvince": "OH",
+                "city": "Columbus",
+                "postalCode": "43085",
+                "streetAddress1": "777-G Dearborn Park Lane",
+                "streetAddress2": null
+            }
+        }
+    },
+    {
+        "name": "A Stage Reborn",
+        "metadata": {
+            "charityNavigatorURL": "https://www.charitynavigator.org/?bay=search.profile&ein=822040383&utm_source=DataAPI&utm_content=6bc9f3c8",
+            "mission": null,
+            "websiteURL": null,
+            "tagLine": null,
+            "charityName": "A Stage Reborn",
+            "ein": "822040383",
+            "mailingAddress": {
+                "country": null,
+                "stateOrProvince": "WA",
+                "city": "SEATTLE",
+                "postalCode": "98115-4316",
+                "streetAddress1": "8001 14TH AVENUE NE SUITE A PMB118",
+                "streetAddress2": null
+            }
+        }
+    },
+    {
+        "name": "Action Against Hunger USA",
+        "metadata": {
+            "charityNavigatorURL": "https://www.charitynavigator.org/?bay=search.summary&orgid=3212&utm_source=DataAPI&utm_content=6bc9f3c8",
+            "mission": "Action Against Hunger is the world's hunger specialist whose primary goal is to create a better way to deal with deadly hunger. For almost 40 years, this global humanitarian organization has been on the front lines treating and preventing hunger across nearly 50 countries; serving more than 20 million people in 2017 alone. Action Against Hunger is the leader in a global movement that aims to end life-threatening hunger for good within our lifetimes. The organization is committed to doubling the number of children who receive urgent hunger care, from three million to six million by 2020. Of every dollar donated, 93 cents go directly to saving lives today and preventing hunger tomorrow.",
+            "websiteURL": "http://www.actionagainsthunger.org",
+            "tagLine": "For a world free from hunger.",
+            "charityName": "Action Against Hunger USA",
+            "ein": "133327220",
+            "category": {
+                "categoryName": "International",
+                "categoryID": 7,
+                "charityNavigatorURL": "https://www.charitynavigator.org/index.cfm?bay=search.categories&categoryid=7&utm_source=DataAPI&utm_content=6bc9f3c8",
+                "image": "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/categories/human.png?utm_source=DataAPI&utm_content=6bc9f3c8"
+            },
+            "cause": {
+                "causeID": 20,
+                "causeName": "Development and Relief Services",
+                "charityNavigatorURL": "https://www.charitynavigator.org/index.cfm?bay=search.results&cgid=7&cuid=20&utm_source=DataAPI&utm_content=6bc9f3c8",
+                "image": "https://d20umu42aunjpx.cloudfront.net/_gfx_/causes/small/development_relief.gif?utm_source=DataAPI&utm_content=6bc9f3c8"
+            },
+            "mailingAddress": {
+                "country": null,
+                "stateOrProvince": "NY",
+                "city": "New York",
+                "postalCode": "10004",
+                "streetAddress1": "One Whitehall Street",
+                "streetAddress2": "Floor 2"
+            }
+        }
+    }
+]

@@ -1,4 +1,10 @@
-const STATES = require("constants/States").states;
+const APL_CONSTANTS = require("constants/APL");
+
+const charityDetailsDocument = require("apl/document/CharityDetailsDocument.json");
+const charityDetailsDatasource = require("apl/data/CharityDetailsDatasource");
+
+const APL_DOCUMENT_TYPE = APL_CONSTANTS.APL_DOCUMENT_TYPE;
+const APL_DOCUMENT_VERSION = APL_CONSTANTS.APL_DOCUMENT_VERSION;
 
 module.exports = DonateIntentHandler = {
   canHandle(handlerInput) {
@@ -13,15 +19,40 @@ module.exports = DonateIntentHandler = {
 
     const sessionAttributes = attributesManager.getSessionAttributes() || {};
     if (
-      sessionAttributes.state === STATES.SUGGEST_CORRECT_SPELLINGS &&
-      Array.isArray(sessionAttributes.suggestedSpellings) &&
-      sessionAttributes.suggestedSpellings.length
+      sessionAttributes.currentCharity
     )
-      return renderSpellSuggestions(handlerInput);
+      return renderDonationDetails(handlerInput);
 
     return responseBuilder
-      .speak("Okay, I sent the information to your phone.")
+      .speak("Sorry, something went wrong. Please try again.")
       .withShouldEndSession(true)
       .getResponse();
   }
+}
+
+/*
+Documentation
+*/
+function renderDonationDetails(handlerInput) {
+  const { attributesManager, responseBuilder } = handlerInput;
+
+  const sessionAttributes = attributesManager.getSessionAttributes();
+  const currentCharity = sessionAttributes.currentCharity;
+
+  return responseBuilder
+    .speak(
+      `Okay, I sent details on donating to ${currentCharity} to your phone. Thanks for donating.`
+    )
+    .withShouldEndSession(true)
+    .addDirective({
+      type: APL_DOCUMENT_TYPE,
+      version: APL_DOCUMENT_VERSION,
+      document: charityDetailsDocument,
+      datasources: charityDetailsDatasource(
+        currentCharity,
+        `Here is how you donate to this charity blah blah?`,
+        currentCharity
+      )
+    })
+    .getResponse();
 }

@@ -1,4 +1,3 @@
-const STATES = require("constants/States").states;
 const APL_CONSTANTS = require("constants/APL");
 
 const charityDetailsDocument = require("apl/document/CharityDetailsDocument.json");
@@ -23,7 +22,6 @@ module.exports = NextCharityIntentHandler = {
 
     const sessionAttributes = attributesManager.getSessionAttributes() || {};
     if (
-      sessionAttributes.state === STATES.CURRENT_CHARITY_EIN &&
       Array.isArray(sessionAttributes.charities) &&
       sessionAttributes.charities.length
     )
@@ -46,6 +44,7 @@ function renderSuggestedCharity(handlerInput) {
   const suggestedCharities = sessionAttributes.charities;
 
   const suggestion = suggestedCharities.shift();
+  sessionAttributes.currentCharity = suggestion;
   attributesManager.setSessionAttributes(sessionAttributes);
 
   if (suggestedCharities.length) {
