@@ -1,14 +1,14 @@
 const hasIn = require("immutable").hasIn;
 
 /**
- * Sanitize the response. Retains the right directives based
- * on the device's capabilities.
+ * Sanitize the response. Retains the APL directives only if the
+ * device supports APL.
  */
 module.exports = ResponseSanitizationInterceptor = {
   process(handlerInput, response) {
     const { requestEnvelope } = handlerInput;
     if (
-      hasIn(requestEnvelope, [
+      !hasIn(requestEnvelope, [
         "context",
         "System",
         "device",
@@ -16,12 +16,9 @@ module.exports = ResponseSanitizationInterceptor = {
         "Alexa.Presentation.APL"
       ])
     ) {
-      response.card = undefined;
-    } else {
       response.directives = undefined;
     }
 
-    console.log(response);
     return Promise.resolve();
   }
 };

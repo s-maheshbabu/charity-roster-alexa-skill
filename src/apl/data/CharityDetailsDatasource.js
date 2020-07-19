@@ -1,4 +1,4 @@
-module.exports = (originalWord, text, additionalInfo) => {
+module.exports = (charityName, text, additionalInfo) => {
   const secondaryText = additionalInfo
     ? additionalInfo
     : "Please try again if I misheard you";
@@ -27,7 +27,7 @@ module.exports = (originalWord, text, additionalInfo) => {
           }
         ]
       },
-      title: "Welcome to pronunciations",
+      title: "Welcome to Charity Roster",
       image: {
         contentDescription: null,
         smallSourceUrl: null,
@@ -52,7 +52,7 @@ module.exports = (originalWord, text, additionalInfo) => {
       textContent: {
         title: {
           type: "PlainText",
-          text: `I pronounced '${originalWord}'`
+          text: `I told you about '${charityName}'`
         },
         primaryText: {
           type: "PlainText",
@@ -65,7 +65,7 @@ module.exports = (originalWord, text, additionalInfo) => {
       },
       logoUrl:
         "https://s3.amazonaws.com/pronunciations-alexa-skill/512x512.png",
-      hintText: `Try, "Alexa, define ${originalWord}"`
+      hintText: `Try, "Alexa, donate to ${charityName}"`
     }
   };
 };

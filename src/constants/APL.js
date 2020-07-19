@@ -7,5 +7,5 @@ const states = Object.freeze({
 module.exports = {
   APL_DOCUMENT_TYPE: "Alexa.Presentation.APL.RenderDocument",
   APL_DOCUMENT_VERSION: "1.0",
-  MAX_SPELL_SUGGESTIONS_TO_DISPLAY: 5
+  MAX_CHARITIES_TO_DISPLAY: 5
 };

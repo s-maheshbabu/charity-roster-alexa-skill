@@ -12,8 +12,8 @@ const APL_CONSTANTS = require("constants/APL");
 const APL_DOCUMENT_TYPE = APL_CONSTANTS.APL_DOCUMENT_TYPE;
 const APL_DOCUMENT_VERSION = APL_CONSTANTS.APL_DOCUMENT_VERSION;
 
-const wordPronouncedDocument = require("apl/document/WordPronouncedDocument.json");
-const wordPronouncedDatasource = require("apl/data/WordPronouncedDatasource");
+const charityDetailsDocument = require("apl/document/CharityDetailsDocument.json");
+const charityDetailsDatasource = require("apl/data/CharityDetailsDatasource");
 
 const skillInfoDocument = require("apl/document/SkillInfoDocument.json");
 const skillInfoDatasource = require("apl/data/SkillInfoDatasource");

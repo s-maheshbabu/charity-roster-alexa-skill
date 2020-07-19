@@ -24,7 +24,7 @@ module.exports = (skillSummary, usageInfo) => {
           }
         ]
       },
-      title: "Welcome to pronunciations",
+      title: "Welcome to Charity Roster",
       image: {
         contentDescription: null,
         smallSourceUrl: null,
@@ -49,7 +49,7 @@ module.exports = (skillSummary, usageInfo) => {
       textContent: {
         title: {
           type: "PlainText",
-          text: `I can help pronounce English words`
+          text: `I can help you learn about the charities that you can help through Alexa`
         },
         primaryText: {
           type: "PlainText",
@@ -62,7 +62,7 @@ module.exports = (skillSummary, usageInfo) => {
       },
       logoUrl:
         "https://s3.amazonaws.com/pronunciations-alexa-skill/512x512.png",
-      hintText: `Try, "Alexa, open pronunciations and pronounce G. Y. R. O.`
+      hintText: `Try, "Alexa, ask Charity Roster for human rights charities`
     }
   };
 };
