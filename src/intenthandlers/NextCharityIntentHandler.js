@@ -28,7 +28,19 @@ module.exports = NextCharityIntentHandler = {
       return renderSuggestedCharity(handlerInput);
 
     return responseBuilder
-      .speak("Sorry, something went wrong. Please try again.")
+      .speak(
+        `That is all I have for now. Please come back later to learn about more charities.`
+      )
+      .addDirective({
+        type: APL_DOCUMENT_TYPE,
+        version: APL_DOCUMENT_VERSION,
+        document: charityDetailsDocument,
+        datasources: charityDetailsDatasource(
+          `Thank you.`,
+          'Thank you for learning about these charities. That is all I have for now.',
+          "Please came back later to learn about more charities."
+        )
+      })
       .withShouldEndSession(true)
       .getResponse();
   }
@@ -47,41 +59,21 @@ function renderSuggestedCharity(handlerInput) {
   sessionAttributes.currentCharity = suggestion;
   attributesManager.setSessionAttributes(sessionAttributes);
 
-  if (suggestedCharities.length) {
-    return responseBuilder
-      .speak(
-        `Here is a charity suggestion. ${suggestion.name}. Do you want to donate?`
+  return responseBuilder
+    .speak(
+      `Here is a charity suggestion. ${suggestion.name}. Do you want to donate?`
+    )
+    .reprompt(`Do you want to donate to them? You can ask me to skip.`)
+    .withShouldEndSession(false)
+    .addDirective({
+      type: APL_DOCUMENT_TYPE,
+      version: APL_DOCUMENT_VERSION,
+      document: charityDetailsDocument,
+      datasources: charityDetailsDatasource(
+        suggestion.name,
+        JSON.stringify(suggestion.metadata),
+        "Alexa donation phrase"
       )
-      .reprompt(`Do you want to donate to them? You can ask me to skip.`)
-      .withShouldEndSession(false)
-      .addDirective({
-        type: APL_DOCUMENT_TYPE,
-        version: APL_DOCUMENT_VERSION,
-        document: charityDetailsDocument,
-        datasources: charityDetailsDatasource(
-          suggestion.name,
-          JSON.stringify(suggestion.metadata),
-          "Alexa donation phrase"
-        )
-      })
-      .getResponse();
-  } else {
-    return responseBuilder
-      .speak(
-        `Here is a charity suggestion. ${suggestion.name}. Do you want to donate?`
-      )
-      .reprompt(`Do you want to donate to them?`)
-      .addDirective({
-        type: APL_DOCUMENT_TYPE,
-        version: APL_DOCUMENT_VERSION,
-        document: charityDetailsDocument,
-        datasources: charityDetailsDatasource(
-          suggestion.name,
-          JSON.stringify(suggestion.metadata),
-          "Alexa donation phrase"
-        )
-      })
-      .withShouldEndSession(true)
-      .getResponse();
-  }
+    })
+    .getResponse();
 }
