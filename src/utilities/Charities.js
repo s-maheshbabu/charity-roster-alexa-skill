@@ -7,7 +7,7 @@ const charities = require('../../resources/data/UseThisDataForNow.json');
  * @param {*} input word whose spelling is to be checked.
  */
 module.exports.getRandomCharities = () => {
-    return [charities[0].name, charities[1].name, charities[2].name];
+    return [charities[0], charities[1], charities[2]];
 };
 
 // --------------- Utility functions -----------------------

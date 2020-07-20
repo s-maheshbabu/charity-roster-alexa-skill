@@ -50,7 +50,7 @@ function renderSuggestedCharity(handlerInput) {
   if (suggestedCharities.length) {
     return responseBuilder
       .speak(
-        `Here is a charity suggestion. ${suggestion}. Do you want to donate?`
+        `Here is a charity suggestion. ${suggestion.name}. Do you want to donate?`
       )
       .reprompt(`Do you want to donate to them? You can ask me to skip.`)
       .withShouldEndSession(false)
@@ -59,18 +59,16 @@ function renderSuggestedCharity(handlerInput) {
         version: APL_DOCUMENT_VERSION,
         document: charityDetailsDocument,
         datasources: charityDetailsDatasource(
-          suggestion,
-          `Say blah blah if you want to donate to them?`,
-          suggestedCharities
-            .slice(0, MAX_CHARITIES_TO_DISPLAY)
-            .join(", ")
+          suggestion.name,
+          JSON.stringify(suggestion.metadata),
+          "Alexa donation phrase"
         )
       })
       .getResponse();
   } else {
     return responseBuilder
       .speak(
-        `Here is a charity suggestion. ${suggestion}. Do you want to donate?`
+        `Here is a charity suggestion. ${suggestion.name}. Do you want to donate?`
       )
       .reprompt(`Do you want to donate to them?`)
       .addDirective({
@@ -78,9 +76,9 @@ function renderSuggestedCharity(handlerInput) {
         version: APL_DOCUMENT_VERSION,
         document: charityDetailsDocument,
         datasources: charityDetailsDatasource(
-          suggestion,
-          `Now that you know about ${suggestion}, you can ask Alexa to donate by saying "Alexa, donate to ${suggestion}"`,
-          `Thank you for using Charity Roster.`
+          suggestion.name,
+          JSON.stringify(suggestion.metadata),
+          "Alexa donation phrase"
         )
       })
       .withShouldEndSession(true)

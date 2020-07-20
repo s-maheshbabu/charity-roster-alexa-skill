@@ -39,7 +39,7 @@ function renderAdditionalDetails(handlerInput) {
 
   return responseBuilder
     .speak(
-      `Okay, here are more details about ${currentCharity}. Would you like to donate?`
+      `Okay, here are more details about ${currentCharity.name}. Would you like to donate?`
     )
     .withShouldEndSession(false)
     .reprompt("Repromting. Would you like to donate?")
@@ -48,9 +48,9 @@ function renderAdditionalDetails(handlerInput) {
       version: APL_DOCUMENT_VERSION,
       document: charityDetailsDocument,
       datasources: charityDetailsDatasource(
-        currentCharity,
-        `Here are more details of the charity blah blah?`,
-        currentCharity
+        currentCharity.name,
+        JSON.stringify(currentCharity.metadata),
+        "Alexa donation phrase"
       )
     })
     .getResponse();

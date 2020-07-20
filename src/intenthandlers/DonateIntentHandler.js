@@ -41,7 +41,7 @@ function renderDonationDetails(handlerInput) {
 
   return responseBuilder
     .speak(
-      `Okay, I sent details on donating to ${currentCharity} to your phone. Thanks for donating.`
+      `Okay, I sent details on donating to ${currentCharity.name} to your phone. Thanks for donating.`
     )
     .withShouldEndSession(true)
     .addDirective({
@@ -49,9 +49,9 @@ function renderDonationDetails(handlerInput) {
       version: APL_DOCUMENT_VERSION,
       document: charityDetailsDocument,
       datasources: charityDetailsDatasource(
-        currentCharity,
-        `Here is how you donate to this charity blah blah?`,
-        currentCharity
+        currentCharity.name,
+        `Thank you`,
+        "Alexa donation phrase"
       )
     })
     .getResponse();

@@ -1,6 +1,7 @@
-module.exports = (charityName, text, additionalInfo) => {
-  const secondaryText = additionalInfo
-    ? additionalInfo
+module.exports = (charityName, charityDetails, howToDonateInfo) => {
+  const text = charityDetails;
+  const secondaryText = howToDonateInfo
+    ? howToDonateInfo
     : "Please try again if I misheard you";
   return {
     bodyTemplate2Data: {
@@ -52,7 +53,7 @@ module.exports = (charityName, text, additionalInfo) => {
       textContent: {
         title: {
           type: "PlainText",
-          text: `I told you about '${charityName}'`
+          text: `${charityName}`
         },
         primaryText: {
           type: "PlainText",

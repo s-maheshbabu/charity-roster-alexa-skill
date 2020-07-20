@@ -49,7 +49,8 @@ module.exports = (skillSummary, usageInfo) => {
       textContent: {
         title: {
           type: "PlainText",
-          text: `I can help you learn about the charities that you can help through Alexa`
+          text: `I can help you learn about various charities that you can donate to, through Alexa. I can present details of random charities but you can also ask me for specific
+categories like human rights, education etc. If you find a charity that you like, I can then provide instructions on how to donate to that charity.`
         },
         primaryText: {
           type: "PlainText",
