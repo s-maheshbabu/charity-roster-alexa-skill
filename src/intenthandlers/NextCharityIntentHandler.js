@@ -27,6 +27,7 @@ module.exports = NextCharityIntentHandler = {
     )
       return renderSuggestedCharity(handlerInput);
 
+    console.log(`Ran out of charities. If this is happening too often, we might want to support dynamically fetching more charities.`);
     return responseBuilder
       .speak(
         `That is all I have for now. Please come back later to learn about more charities.`
