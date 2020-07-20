@@ -6,8 +6,7 @@ const charityDetailsDatasource = require("apl/data/CharityDetailsDatasource");
 const APL_DOCUMENT_TYPE = APL_CONSTANTS.APL_DOCUMENT_TYPE;
 const APL_DOCUMENT_VERSION = APL_CONSTANTS.APL_DOCUMENT_VERSION;
 
-const MAX_CHARITIES_TO_DISPLAY =
-  APL_CONSTANTS.MAX_CHARITIES_TO_DISPLAY;
+const hasIn = require("immutable").hasIn;
 
 module.exports = NextCharityIntentHandler = {
   canHandle(handlerInput) {
@@ -60,11 +59,12 @@ function renderSuggestedCharity(handlerInput) {
   sessionAttributes.currentCharity = suggestion;
   attributesManager.setSessionAttributes(sessionAttributes);
 
+  const charityDescription = getCharityDescription(suggestion);
   return responseBuilder
     .speak(
-      `Here is a charity suggestion. ${suggestion.name}. Do you want to donate?`
+      `${charityDescription} Would you like to make a donation?`
     )
-    .reprompt(`Do you want to donate to them? You can ask me to skip.`)
+    .reprompt(`Would you like to make a donation to ${suggestion.name}? You can ask me to skip if want to learn about a different charity.`)
     .withShouldEndSession(false)
     .addDirective({
       type: APL_DOCUMENT_TYPE,
@@ -77,4 +77,51 @@ function renderSuggestedCharity(handlerInput) {
       )
     })
     .getResponse();
+}
+
+function getCharityDescription(charity) {
+  let charityDescription = `Here is a charity you might like. ${charity.name}. `;
+
+  if (
+    hasIn(charity, [
+      "metadata",
+      "mission"
+    ]) && charity.metadata.mission !== null
+  )
+    charityDescription += charity.metadata.mission;
+
+  else {
+    if (
+      hasIn(charity, [
+        "metadata",
+        "category",
+        "categoryName"
+      ]) && charity.metadata.category.categoryName !== null
+    )
+      charityDescription += `It operates in the ${charity.metadata.category.categoryName} sector. `;
+
+    if (
+      hasIn(charity, [
+        "metadata",
+        "cause",
+        "causeName"
+      ]) && charity.metadata.cause.causeName !== null
+    )
+      charityDescription += `focusing on ${charity.metadata.cause.causeName}. `;
+
+    if (
+      hasIn(charity, [
+        "metadata",
+        "mailingAddress",
+        "stateOrProvince"
+      ]) && charity.metadata.mailingAddress.stateOrProvince !== null && hasIn(charity, [
+        "metadata",
+        "mailingAddress",
+        "city"
+      ]) && charity.metadata.mailingAddress.city !== null
+    )
+      charityDescription += `It is based out of ${charity.metadata.mailingAddress.city}, ${charity.metadata.mailingAddress.stateOrProvince}. `;
+  }
+
+  return charityDescription;
 }

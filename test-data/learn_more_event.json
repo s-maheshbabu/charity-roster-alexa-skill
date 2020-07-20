@@ -1,18 +1,65 @@
 {
     "version": "1.0",
     "session": {
-        "new": true,
-        "sessionId": "amzn1.echo-api.session.4375982b-8aa0-42a8-9056-a99db0a907ef",
+        "new": false,
+        "sessionId": "amzn1.echo-api.session.c935caed-3380-4ad4-9d3a-be4127de7800",
         "application": {
             "applicationId": "amzn1.ask.skill.b4e9defb-8d70-4610-a2b7-09ff301be7fd"
         },
         "attributes": {
             "charities": [
-                "30 For The Kids Inc.",
-                "A Kid Again"
+                {
+                    "name": "A Kid Again",
+                    "metadata": {
+                        "charityNavigatorURL": "https://www.charitynavigator.org/?bay=search.summary&orgid=9239&utm_source=DataAPI&utm_content=6bc9f3c8",
+                        "mission": "Founded in 1995 as Adventures For Wish Kids, A Kid Again provides hope, happiness and healing to families raising kids with life threatening illness. We provide fun filled activities and destination events, which we call adventures at no cost to families. Our year round adventures foster laughter, joy, normalcy and supportive networking opportunities. Our family centric approach allows for a broader more comprehensive impact on the effects of coping with a life threatening illness in the family. Our events allow families to give illness a GIANT Time Out!",
+                        "websiteURL": "http://www.akidagain.org",
+                        "tagLine": "Giving illness a GIANT Time Out!",
+                        "charityName": "A Kid Again",
+                        "ein": "311440073",
+                        "category": {
+                            "categoryName": "Health",
+                            "categoryID": 5,
+                            "charityNavigatorURL": "https://www.charitynavigator.org/index.cfm?bay=search.categories&categoryid=5&utm_source=DataAPI&utm_content=6bc9f3c8",
+                            "image": "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/categories/environment.png?utm_source=DataAPI&utm_content=6bc9f3c8"
+                        },
+                        "cause": {
+                            "causeID": 34,
+                            "causeName": "Patient and Family Support",
+                            "charityNavigatorURL": "https://www.charitynavigator.org/index.cfm?bay=search.results&cgid=5&cuid=34&utm_source=DataAPI&utm_content=6bc9f3c8",
+                            "image": "https://d20umu42aunjpx.cloudfront.net/_gfx_/causes/small/patient_and_family_support.gif?utm_source=DataAPI&utm_content=6bc9f3c8"
+                        },
+                        "mailingAddress": {
+                            "country": null,
+                            "stateOrProvince": "OH",
+                            "city": "Columbus",
+                            "postalCode": "43085",
+                            "streetAddress1": "777-G Dearborn Park Lane",
+                            "streetAddress2": null
+                        }
+                    }
+                }
             ],
             "isAPLSupported": true,
-            "currentCharity": "1UpOnCancer"
+            "currentCharity": {
+                "name": "30 For The Kids Inc.",
+                "metadata": {
+                    "charityNavigatorURL": "https://www.charitynavigator.org/?bay=search.profile&ein=832076507&utm_source=DataAPI&utm_content=6bc9f3c8",
+                    "mission": null,
+                    "websiteURL": null,
+                    "tagLine": null,
+                    "charityName": "30 for the Kids Inc.",
+                    "ein": "832076507",
+                    "mailingAddress": {
+                        "country": null,
+                        "stateOrProvince": "MO",
+                        "city": "SAINT LOUIS",
+                        "postalCode": "63123-7207",
+                        "streetAddress1": "9779 GREEN PARK INDUSTRIAL DR",
+                        "streetAddress2": null
+                    }
+                }
+            }
         },
         "user": {
             "userId": "amzn1.ask.account.AENSSKIJ5T2JVRF5CW7JNZQ7UPRQWCECCTJMHKRGPOUFT4MER3VH44UL2S4QEHEL5NAIFDWMNU4J44QYNLU56YI7SWRPO5KUR55E2N6KQQ3CMPVNC6WWPT2CHQCJX2ESTRPH6C7IFT2NRJKU2FXHPW3E5DQT2EW5ZI5AQVN7AT2LBF7QEJ32FMRVCQ7DG3AJFVU46THVRMW3HKI"
@@ -24,7 +71,7 @@
             "version": "APL_WEB_RENDERER_GANDALF",
             "componentsVisibleOnScreen": [
                 {
-                    "uid": ":1289",
+                    "uid": ":2139",
                     "position": "1024x600+0+0:0",
                     "type": "mixed",
                     "tags": {
@@ -54,7 +101,7 @@
                 }
             },
             "apiEndpoint": "https://api.amazonalexa.com",
-            "apiAccessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjEifQ.eyJhdWQiOiJodHRwczovL2FwaS5hbWF6b25hbGV4YS5jb20iLCJpc3MiOiJBbGV4YVNraWxsS2l0Iiwic3ViIjoiYW16bjEuYXNrLnNraWxsLmI0ZTlkZWZiLThkNzAtNDYxMC1hMmI3LTA5ZmYzMDFiZTdmZCIsImV4cCI6MTU5NTE5Mzk4NywiaWF0IjoxNTk1MTkzNjg3LCJuYmYiOjE1OTUxOTM2ODcsInByaXZhdGVDbGFpbXMiOnsiY29udGV4dCI6IkFBQUFBQUFBQUFBK2RFR0lxQUEvSnoyQXNWMnlJWFlDSkFFQUFBQUFBQUJBQzJuTWRLL0k1YTZLNjhRUnFDY1BTNEJpRDJwU2VhdGpVUTUyNTJReWQ0Sy9qc1JiOWJHVlNBU0Zaems2L0p0VnVmTTBUZ3FBY1RLWFZUZ3ZtS1IyRzFqaFdQenU4UGpud0QvVUdvUVJKVlNwazFhREhJdzlJZmxRakd4Z2FqY0prTlBVU0pYQVR4U0dOd1IreE9qMHZ6ZHo3RnNZazNScjFNZGx0MU94cjVHM29qL25veEVoVlVGWWpNNzV5NTJGcm5lYmZoNDhENG5oQytJR1Nkdzlma01iUk1jS1NvWmU5ZGZnYW85TVFRQk44bVpjRTZ6L2l4WXd4T2Q2dWZtVWNZWW1UWXh5VngyVEg3TzFuOWp0UEJaa3h5b29uWkR1Qkl4aEVuYWhzSmc1QmZoMmJyWFY4eTVMeGlyM2ZWU3NlbE5iR0JNYzlUdFhhQkxXemJNVm91djcwWEFUS2xzamQ1MG5iUXdBY3dKLzF1Umd1ZUhsUWZwSzZEVFZNLzl6NUNjaCIsImNvbnNlbnRUb2tlbiI6bnVsbCwiZGV2aWNlSWQiOiJhbXpuMS5hc2suZGV2aWNlLkFIQlpTUk1aMlNRS0FDS0FXUTVDT1dFT0FYU0kzU0lHUlFMNVRHTFVBRjUzT0xXNEVFRzVENEIzMkg3SkxCN1BZSUlNQVFUVDJDR0FQNVRSNjNRT1FPWjRJUks0RENaSFk2NjVESFlEMkJSUzJBUjZHRkpWVTMzUlhNWlVGQVFJTktZNUZIS1AyNkpPVEJTTlRMT1pJSEVXNkRRQSIsInVzZXJJZCI6ImFtem4xLmFzay5hY2NvdW50LkFFTlNTS0lKNVQySlZSRjVDVzdKTlpRN1VQUlFXQ0VDQ1RKTUhLUkdQT1VGVDRNRVIzVkg0NFVMMlM0UUVIRUw1TkFJRkRXTU5VNEo0NFFZTkxVNTZZSTdTV1JQTzVLVVI1NUUyTjZLUVEzQ01QVk5DNldXUFQyQ0hRQ0pYMkVTVFJQSDZDN0lGVDJOUkpLVTJGWEhQVzNFNURRVDJFVzVaSTVBUVZON0FUMkxCRjdRRUozMkZNUlZDUTdERzNBSkZWVTQ2VEhWUk1XM0hLSSJ9fQ.Q--6y88ygEsr_y4VJi1Yj7Sw73bHQE7sulbybv-3bOwqCzLZLlC7M6xfLX1VgqSpEKwCg2F_buAlKN6p9ecglsmMRiSq87fxsu9pwqjdmgCS8c757baCNCRsSxh_xj9-P_w51LIt7QbzZSmxEI_VEf02smntE0dPLvdqsf-FHddR0Ju9A8OFqVq6wXin2wM3uivqpv0V8R1BnxneRvgeltL12P0PEnoywz1iaSIuiUPS03MQs4a_95uX_jPTMBihTMzZXc6X_XcHyB2XZceyduJQLNdWTpzJSbsC-dsAlY063XHtrwTeLL1BxpOKC_Re9xGogyHHgs3fhiUbU-lzKA"
+            "apiAccessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjEifQ.eyJhdWQiOiJodHRwczovL2FwaS5hbWF6b25hbGV4YS5jb20iLCJpc3MiOiJBbGV4YVNraWxsS2l0Iiwic3ViIjoiYW16bjEuYXNrLnNraWxsLmI0ZTlkZWZiLThkNzAtNDYxMC1hMmI3LTA5ZmYzMDFiZTdmZCIsImV4cCI6MTU5NTI4MDkyNCwiaWF0IjoxNTk1MjgwNjI0LCJuYmYiOjE1OTUyODA2MjQsInByaXZhdGVDbGFpbXMiOnsiY29udGV4dCI6IkFBQUFBQUFBQUFBZUtCcUNRTVdnOGxNS0FVZEo5TzhESkFFQUFBQUFBQUNTekFja3dQT0J2akgyOE1PMnkxcUZXeVBBaCtwa0RjaGhCSHVNYXhDYXMwaWxWamxwbGwwZXV1eEZzY2xhbngxRXloSkRoeWN1MUV4OVVOeXFCdGZFeGtBWTdYNjV4S3Q2cXhZSkpzQnppVU1qT2hDK1lDR0Z1VC9OMmhDcEFqOXZmTi9tN3dsZFhpZlk1eGdLQ2JHTjk4dlpjeXp0M08xZW1YRUJ0SzF5YzhkTWJMSnJOdlhtTlFjWm9kNm1BYmxPbVFtbnFzYVpYdEIrbVlveGJHanh4US91b3dHQWRoMGFkRS9hUk0xR3BSbWdtcDBKSkF2d1N5MHhYZ09pRHl1cGlmeEQ5Zkd3TTZZSHZ4RFdsVXFPN3NhSHFaTCtXQ3puUHFNcXpmaTFmMEZ3aWlHMEtoZDQrUXBwa0l5T2RPSEF6Y3pITEhiQnAvN3NTZy9tbDJFMXd5WWhLdTF5a2YrVEtnUnFvOUtwN2JwbWg3dll3cDNyQW9RYnplVzIyTU9NQzhsSiIsImNvbnNlbnRUb2tlbiI6bnVsbCwiZGV2aWNlSWQiOiJhbXpuMS5hc2suZGV2aWNlLkFIQlpTUk1aMlNRS0FDS0FXUTVDT1dFT0FYU0kzU0lHUlFMNVRHTFVBRjUzT0xXNEVFRzVENEIzMkg3SkxCN1BZSUlNQVFUVDJDR0FQNVRSNjNRT1FPWjRJUks0RENaSFk2NjVESFlEMkJSUzJBUjZHRkpWVTMzUlhNWlVGQVFJTktZNUZIS1AyNkpPVEJTTlRMT1pJSEVXNkRRQSIsInVzZXJJZCI6ImFtem4xLmFzay5hY2NvdW50LkFFTlNTS0lKNVQySlZSRjVDVzdKTlpRN1VQUlFXQ0VDQ1RKTUhLUkdQT1VGVDRNRVIzVkg0NFVMMlM0UUVIRUw1TkFJRkRXTU5VNEo0NFFZTkxVNTZZSTdTV1JQTzVLVVI1NUUyTjZLUVEzQ01QVk5DNldXUFQyQ0hRQ0pYMkVTVFJQSDZDN0lGVDJOUkpLVTJGWEhQVzNFNURRVDJFVzVaSTVBUVZON0FUMkxCRjdRRUozMkZNUlZDUTdERzNBSkZWVTQ2VEhWUk1XM0hLSSJ9fQ.HX7hlnFbGthImxh8OWCtjvGNfm-_JRTuHhwXK-esVdmvO079bvN4kWE0kY6rkD8miX6Mnqc2sDJYHBePKOdghKSe61RDObo8A_DIlk6GDZZBoGiRqgEytlF9WtF5pd5DRw6tUHuZR1aQmKGVsOYLeQx5zNWfyZqyyu1t4xe65PG2-2T-tL6EBYgtAuEjPosex4RawRl0-2JtyUuWo5XacrmRBqhGfH2kmWrTkU4oO-efPM7GrWMllbbxgMMa5CrMLGvs8h1HmoII_uWQE_O-I9NfuLguk62197I9eE2YkAA4dIPOVtcT6zVjZ1eQ6MOwR_b_CGRfCqFNw-fzhctN4A"
         },
         "Viewport": {
             "experiences": [
@@ -111,9 +158,9 @@
     },
     "request": {
         "type": "IntentRequest",
-        "requestId": "amzn1.echo-api.request.25bd622e-61aa-4c3f-8c4f-a03ca81ec7be",
+        "requestId": "amzn1.echo-api.request.1e5aa9a0-7f0b-4a18-8062-84d64472f9f9",
         "locale": "en-US",
-        "timestamp": "2020-07-19T21:21:27Z",
+        "timestamp": "2020-07-20T21:30:24Z",
         "intent": {
             "name": "LearnMoreIntent",
             "confirmationStatus": "NONE"
