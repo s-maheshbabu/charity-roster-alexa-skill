@@ -7,6 +7,8 @@ const charityDetailsDatasource = require("apl/data/CharityDetailsDatasource");
 const APL_DOCUMENT_TYPE = APL_CONSTANTS.APL_DOCUMENT_TYPE;
 const APL_DOCUMENT_VERSION = APL_CONSTANTS.APL_DOCUMENT_VERSION;
 
+const SOUND_EFFECT = "<audio src=\"soundbank://soundlibrary/alarms/beeps_and_bloops/tone_02\"/>";
+
 module.exports = LearnMoreIntentHandler = {
   canHandle(handlerInput) {
     return (
@@ -41,10 +43,10 @@ function renderAdditionalDetails(handlerInput) {
   const charityAdditionalDetails = getAdditionalDetails(currentCharity);
   return responseBuilder
     .speak(
-      `${charityAdditionalDetails} Would you like to make a donation?`
+      `${charityAdditionalDetails} ${SOUND_EFFECT} Would you like to know how to donate to ${currentCharity.name}?`
     )
     .withShouldEndSession(false)
-    .reprompt(`Would you like to make a donation to ${currentCharity.name}? You can ask me to skip if want to learn about a different charity.`)
+    .reprompt(`Would you like to know how to donate to ${currentCharity.name}? You won't be making a donation yet but I can give you instructions on how to donate. You can ask me to skip this charity if you want to learn about a different charity.`)
     .addDirective({
       type: APL_DOCUMENT_TYPE,
       version: APL_DOCUMENT_VERSION,
@@ -59,7 +61,7 @@ function renderAdditionalDetails(handlerInput) {
 }
 
 function getAdditionalDetails(charity) {
-  let charityDescription = `Okay. `;
+  let charityDescription = `<amazon:domain name="conversational">Okay. </amazon:domain>`;
 
   if (
     hasIn(charity, [
@@ -74,7 +76,7 @@ function getAdditionalDetails(charity) {
         "categoryName"
       ]) && charity.metadata.category.categoryName !== null
     )
-      charityDescription += `${charity.name} operates in the ${charity.metadata.category.categoryName} sector. `;
+      charityDescription += `<amazon:domain name="news">${charity.name} operates in the ${charity.metadata.category.categoryName} sector. </amazon:domain>`;
 
     if (
       hasIn(charity, [
@@ -83,7 +85,7 @@ function getAdditionalDetails(charity) {
         "causeName"
       ]) && charity.metadata.cause.causeName !== null
     )
-      charityDescription += `focusing on ${charity.metadata.cause.causeName}. `;
+      charityDescription += `<amazon:domain name="news">focusing on ${charity.metadata.cause.causeName}. </amazon:domain>`;
   }
 
   if (
@@ -97,7 +99,7 @@ function getAdditionalDetails(charity) {
       "city"
     ]) && charity.metadata.mailingAddress.city !== null
   )
-    charityDescription += `${charity.name} is based out of ${charity.metadata.mailingAddress.city}, ${charity.metadata.mailingAddress.stateOrProvince}. `;
+    charityDescription += `<amazon:domain name="news">${charity.name} is based out of <say-as interpret-as="address">${charity.metadata.mailingAddress.city}, ${charity.metadata.mailingAddress.stateOrProvince}. </say-as></amazon:domain>`;
 
   if (
     hasIn(charity, [
@@ -110,7 +112,7 @@ function getAdditionalDetails(charity) {
       "postalCode"
     ]) && charity.metadata.mailingAddress.postalCode !== null
   )
-    charityDescription += `Their address is ${charity.metadata.mailingAddress.streetAddress1}, ${charity.metadata.mailingAddress.postalCode}. `;
+    charityDescription += `<amazon:domain name="news">Their address is <say-as interpret-as="address">${charity.metadata.mailingAddress.streetAddress1}, ${charity.metadata.mailingAddress.postalCode}. </say-as></amazon:domain>`;
 
   return charityDescription;
 }

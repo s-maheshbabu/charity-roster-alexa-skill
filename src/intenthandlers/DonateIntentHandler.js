@@ -39,9 +39,10 @@ function renderDonationDetails(handlerInput) {
   const sessionAttributes = attributesManager.getSessionAttributes();
   const currentCharity = sessionAttributes.currentCharity;
 
+  const alexaDonationPhrase = "Dummy Alexa Donation Phrase";
   return responseBuilder
     .speak(
-      `Okay, I sent details on donating to ${currentCharity.name} to your phone. Thanks for donating.`
+      `Okay. You can donate to ${currentCharity.name} by saying ${alexaDonationPhrase}. I also sent the instructions to the Alexa app on your phone. Thank you for your donation.`
     )
     .withShouldEndSession(true)
     .addDirective({
@@ -51,7 +52,7 @@ function renderDonationDetails(handlerInput) {
       datasources: charityDetailsDatasource(
         currentCharity.name,
         `Thank you`,
-        "Alexa donation phrase"
+        `${alexaDonationPhrase}`
       )
     })
     .getResponse();

@@ -7,6 +7,7 @@ const APL_DOCUMENT_TYPE = APL_CONSTANTS.APL_DOCUMENT_TYPE;
 const APL_DOCUMENT_VERSION = APL_CONSTANTS.APL_DOCUMENT_VERSION;
 
 const hasIn = require("immutable").hasIn;
+const SOUND_EFFECT = "<audio src=\"soundbank://soundlibrary/alarms/beeps_and_bloops/tone_02\"/>";
 
 module.exports = NextCharityIntentHandler = {
   canHandle(handlerInput) {
@@ -26,7 +27,7 @@ module.exports = NextCharityIntentHandler = {
     )
       return renderSuggestedCharity(handlerInput);
 
-    console.log(`Ran out of charities. If this is happening too often, we might want to support dynamically fetching more charities.`);
+    console.log(`Ran out of cached charities. If this is happening too often, we might want to support dynamically fetching more charities.`);
     return responseBuilder
       .speak(
         `That is all I have for now. Please come back later to learn about more charities.`
@@ -62,9 +63,9 @@ function renderSuggestedCharity(handlerInput) {
   const charityDescription = getCharityDescription(suggestion);
   return responseBuilder
     .speak(
-      `${charityDescription} Would you like to make a donation?`
+      `${charityDescription} ${SOUND_EFFECT} Would you like to know how to donate to ${suggestion.name}?`
     )
-    .reprompt(`Would you like to make a donation to ${suggestion.name}? You can ask me to skip if want to learn about a different charity.`)
+    .reprompt(`Would you like to know how to donate to ${suggestion.name}? You won't be making a donation yet but I can give you instructions on how to donate. You can ask me to skip this charity if you want to learn about a different charity.`)
     .withShouldEndSession(false)
     .addDirective({
       type: APL_DOCUMENT_TYPE,
@@ -88,7 +89,7 @@ function getCharityDescription(charity) {
       "mission"
     ]) && charity.metadata.mission !== null
   )
-    charityDescription += charity.metadata.mission;
+    charityDescription += `<amazon:domain name="news">${charity.metadata.mission}. </amazon:domain>`;
 
   else {
     if (
@@ -98,7 +99,7 @@ function getCharityDescription(charity) {
         "categoryName"
       ]) && charity.metadata.category.categoryName !== null
     )
-      charityDescription += `It operates in the ${charity.metadata.category.categoryName} sector. `;
+      charityDescription += `<amazon:domain name="news">It operates in the ${charity.metadata.category.categoryName} sector. </amazon:domain>`;
 
     if (
       hasIn(charity, [
@@ -107,7 +108,7 @@ function getCharityDescription(charity) {
         "causeName"
       ]) && charity.metadata.cause.causeName !== null
     )
-      charityDescription += `focusing on ${charity.metadata.cause.causeName}. `;
+      charityDescription += `<amazon:domain name="news">focusing on ${charity.metadata.cause.causeName}. </amazon:domain>`;
 
     if (
       hasIn(charity, [
@@ -120,7 +121,7 @@ function getCharityDescription(charity) {
         "city"
       ]) && charity.metadata.mailingAddress.city !== null
     )
-      charityDescription += `It is based out of ${charity.metadata.mailingAddress.city}, ${charity.metadata.mailingAddress.stateOrProvince}. `;
+      charityDescription += `It is based out of <say-as interpret-as="address">${charity.metadata.mailingAddress.city}, ${charity.metadata.mailingAddress.stateOrProvince}</say-as>. `;
   }
 
   return charityDescription;

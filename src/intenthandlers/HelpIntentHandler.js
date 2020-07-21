@@ -14,8 +14,9 @@ module.exports = HelpIntentHandler = {
     );
   },
   handle(handlerInput) {
-    const helpText = `I can help you navigate charities blah blah blah.`;
-    const helpRepromptText = `I can help you navigate charities, want me to?`;
+    const helpText = `I can help you learn about various charitable organizations, their mission statements, location etc.. If you find a charity that you are interested in, you can ask me for more details or for instructions on how to donate.
+I can tell you how to make a donation through Alexa and will also send instructions to the Alexa app on your phone if you prefer to donate through other means. Would you like to hear about some charities?`;
+    const helpRepromptText = `Would you like me to start telling you about some charities?`;
 
     return handlerInput.responseBuilder
       .speak(helpText)
