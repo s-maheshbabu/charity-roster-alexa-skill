@@ -22,6 +22,11 @@ I can tell you how to make a donation through Alexa and will also send instructi
       .speak(helpText)
       .reprompt(helpRepromptText)
       .withShouldEndSession(false)
+      .withSimpleCard(
+        `Charity Roster`,
+        `I can help you learn about various charitable organizations, their mission statements, location etc.. If you find a charity that you are interested in, you can ask me for more details or for instructions on how to donate.
+I can tell you how to make a donation through Alexa and will also send instructions to the Alexa app on your phone if you prefer to donate through other means.`
+      )
       .addDirective({
         type: APL_DOCUMENT_TYPE,
         version: APL_DOCUMENT_VERSION,

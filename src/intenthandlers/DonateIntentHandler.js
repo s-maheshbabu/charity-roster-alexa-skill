@@ -45,6 +45,12 @@ function renderDonationDetails(handlerInput) {
       `Okay. You can donate to ${currentCharity.name} by saying ${alexaDonationPhrase}. I also sent the instructions to the Alexa app on your phone. Thank you for your donation.`
     )
     .withShouldEndSession(true)
+    .withSimpleCard(
+      `Donate to ${currentCharity.name}`,
+      `You can donate to ${currentCharity.name} by saying ${alexaDonationPhrase}.
+
+The donation itself is processed by Amazon using the secure AmazonPay systems. You can learn more at https://pay.amazon.com/help/201754640`
+    )
     .addDirective({
       type: APL_DOCUMENT_TYPE,
       version: APL_DOCUMENT_VERSION,
