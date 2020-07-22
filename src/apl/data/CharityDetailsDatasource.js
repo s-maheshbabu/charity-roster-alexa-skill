@@ -1,5 +1,4 @@
-module.exports = (charityName, charityDetails, howToDonateInfo) => {
-  const text = charityDetails;
+module.exports = (charityName, text, howToDonateInfo) => {
   const secondaryText = howToDonateInfo
     ? howToDonateInfo
     : "Please try again if I misheard you";
@@ -66,7 +65,7 @@ module.exports = (charityName, charityDetails, howToDonateInfo) => {
       },
       logoUrl:
         "https://s3.amazonaws.com/pronunciations-alexa-skill/512x512.png",
-      hintText: `Try, "Alexa, donate to ${charityName}"`
+      hintText: `Try, "Alexa, ask charity roster about human rights charities"`
     }
   };
 };

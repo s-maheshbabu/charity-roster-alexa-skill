@@ -40,6 +40,8 @@ function renderAdditionalDetails(handlerInput) {
   const sessionAttributes = attributesManager.getSessionAttributes();
   const currentCharity = sessionAttributes.currentCharity;
 
+  const alexaDonationPhrase = currentCharity.alexaDonationPhrase;
+
   const charityAdditionalDetails = getAdditionalDetails(currentCharity);
   return responseBuilder
     .speak(
@@ -53,8 +55,8 @@ function renderAdditionalDetails(handlerInput) {
       document: charityDetailsDocument,
       datasources: charityDetailsDatasource(
         currentCharity.name,
-        JSON.stringify(currentCharity.metadata),
-        "Alexa donation phrase"
+        charityAdditionalDetails,
+        `You can donate to them by saying, "${alexaDonationPhrase}"`
       )
     })
     .getResponse();

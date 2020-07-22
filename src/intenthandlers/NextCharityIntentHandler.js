@@ -60,10 +60,11 @@ function renderSuggestedCharity(handlerInput) {
   sessionAttributes.currentCharity = suggestion;
   attributesManager.setSessionAttributes(sessionAttributes);
 
+  const alexaDonationPhrase = suggestion.alexaDonationPhrase;
   const charityDescription = getCharityDescription(suggestion);
   return responseBuilder
     .speak(
-      `${charityDescription} ${SOUND_EFFECT} Would you like to know how to donate to ${suggestion.name}?`
+      `Here is a charity you might like. ${suggestion.name}. ${charityDescription} ${SOUND_EFFECT} Would you like to know how to donate to ${suggestion.name}?`
     )
     .reprompt(`Would you like to know how to donate to ${suggestion.name}? You won't be making a donation yet but I can give you instructions on how to donate. You can ask me to skip this charity if you want to learn about a different charity.`)
     .withShouldEndSession(false)
@@ -73,15 +74,15 @@ function renderSuggestedCharity(handlerInput) {
       document: charityDetailsDocument,
       datasources: charityDetailsDatasource(
         suggestion.name,
-        JSON.stringify(suggestion.metadata),
-        "Alexa donation phrase"
+        charityDescription,
+        `You can donate to them by saying, "${alexaDonationPhrase}"`
       )
     })
     .getResponse();
 }
 
 function getCharityDescription(charity) {
-  let charityDescription = `Here is a charity you might like. ${charity.name}. `;
+  let charityDescription = ``;
 
   if (
     hasIn(charity, [

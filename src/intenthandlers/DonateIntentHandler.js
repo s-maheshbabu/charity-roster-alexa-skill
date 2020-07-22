@@ -39,7 +39,7 @@ function renderDonationDetails(handlerInput) {
   const sessionAttributes = attributesManager.getSessionAttributes();
   const currentCharity = sessionAttributes.currentCharity;
 
-  const alexaDonationPhrase = "Dummy Alexa Donation Phrase";
+  const alexaDonationPhrase = currentCharity.alexaDonationPhrase;
   return responseBuilder
     .speak(
       `Okay. You can donate to ${currentCharity.name} by saying ${alexaDonationPhrase}. I also sent the instructions to the Alexa app on your phone. Thank you for your donation.`
@@ -57,8 +57,8 @@ The donation itself is processed by Amazon using the secure AmazonPay systems. Y
       document: charityDetailsDocument,
       datasources: charityDetailsDatasource(
         currentCharity.name,
-        `Thank you`,
-        `${alexaDonationPhrase}`
+        `Thank you for considering ${currentCharity.name} for a donation. You can donate through Alexa by saying`,
+        alexaDonationPhrase
       )
     })
     .getResponse();
