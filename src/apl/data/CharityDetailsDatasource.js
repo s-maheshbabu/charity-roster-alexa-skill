@@ -13,14 +13,14 @@ module.exports = (charityName, text, howToDonateInfo) => {
         sources: [
           {
             url:
-              "https://s3.amazonaws.com/pronunciations-alexa-skill/background.jpg",
+              "https://charity-roster-alexa-skill.s3.amazonaws.com/charity-roster-background.jpg",
             size: "small",
             widthPixels: 0,
             heightPixels: 0
           },
           {
             url:
-              "https://s3.amazonaws.com/pronunciations-alexa-skill/background.jpg",
+              "https://charity-roster-alexa-skill.s3.amazonaws.com/charity-roster-background.jpg",
             size: "large",
             widthPixels: 0,
             heightPixels: 0
@@ -35,14 +35,14 @@ module.exports = (charityName, text, howToDonateInfo) => {
         sources: [
           {
             url:
-              "https://s3.amazonaws.com/pronunciations-alexa-skill/background.jpg",
+              "https://charity-roster-alexa-skill.s3.amazonaws.com/charity-roster-background.jpg",
             size: "small",
             widthPixels: 0,
             heightPixels: 0
           },
           {
             url:
-              "https://s3.amazonaws.com/pronunciations-alexa-skill/background.jpg",
+              "https://charity-roster-alexa-skill.s3.amazonaws.com/charity-roster-background.jpg",
             size: "large",
             widthPixels: 0,
             heightPixels: 0
@@ -64,7 +64,7 @@ module.exports = (charityName, text, howToDonateInfo) => {
         }
       },
       logoUrl:
-        "https://s3.amazonaws.com/pronunciations-alexa-skill/512x512.png",
+        "https://charity-roster-alexa-skill.s3.amazonaws.com/512x512.png",
       hintText: `Try, "Alexa, ask charity roster about human rights charities"`
     }
   };

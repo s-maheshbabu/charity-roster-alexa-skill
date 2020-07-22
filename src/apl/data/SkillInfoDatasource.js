@@ -10,14 +10,14 @@ module.exports = (skillSummary, usageInfo) => {
         sources: [
           {
             url:
-              "https://s3.amazonaws.com/pronunciations-alexa-skill/background.jpg",
+              "https://charity-roster-alexa-skill.s3.amazonaws.com/charity-roster-background.jpg",
             size: "small",
             widthPixels: 0,
             heightPixels: 0
           },
           {
             url:
-              "https://s3.amazonaws.com/pronunciations-alexa-skill/background.jpg",
+              "https://charity-roster-alexa-skill.s3.amazonaws.com/charity-roster-background.jpg",
             size: "large",
             widthPixels: 0,
             heightPixels: 0
@@ -32,14 +32,14 @@ module.exports = (skillSummary, usageInfo) => {
         sources: [
           {
             url:
-              "https://s3.amazonaws.com/pronunciations-alexa-skill/background.jpg",
+              "https://charity-roster-alexa-skill.s3.amazonaws.com/charity-roster-background.jpg",
             size: "small",
             widthPixels: 0,
             heightPixels: 0
           },
           {
             url:
-              "https://s3.amazonaws.com/pronunciations-alexa-skill/background.jpg",
+              "https://charity-roster-alexa-skill.s3.amazonaws.com/charity-roster-background.jpg",
             size: "large",
             widthPixels: 0,
             heightPixels: 0
@@ -62,7 +62,7 @@ categories like human rights, education etc. If you find a charity that you like
         }
       },
       logoUrl:
-        "https://s3.amazonaws.com/pronunciations-alexa-skill/512x512.png",
+        "https://charity-roster-alexa-skill.s3.amazonaws.com/512x512.png",
       hintText: `Try, "Alexa, ask Charity Roster for human rights charities`
     }
   };
