@@ -74,7 +74,7 @@ function renderSuggestedCharity(handlerInput) {
       document: charityDetailsDocument,
       datasources: charityDetailsDatasource(
         suggestion.name,
-        charityDescription,
+        cleanupForVisualPresentation(charityDescription),
         `You can donate to them by saying, "${alexaDonationPhrase}"`
       )
     })
@@ -126,4 +126,9 @@ function getCharityDescription(charity) {
   }
 
   return charityDescription;
+}
+
+function cleanupForVisualPresentation(input) {
+  const regex = /<.*?>/gi;
+  return input.replace(regex, '');
 }

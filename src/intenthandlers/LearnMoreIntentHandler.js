@@ -55,7 +55,7 @@ function renderAdditionalDetails(handlerInput) {
       document: charityDetailsDocument,
       datasources: charityDetailsDatasource(
         currentCharity.name,
-        charityAdditionalDetails,
+        cleanupForVisualPresentation(charityAdditionalDetails),
         `You can donate to them by saying, "${alexaDonationPhrase}"`
       )
     })
@@ -117,4 +117,9 @@ function getAdditionalDetails(charity) {
     charityDescription += `<amazon:domain name="news">Their address is <say-as interpret-as="address">${charity.metadata.mailingAddress.streetAddress1}, ${charity.metadata.mailingAddress.postalCode}. </say-as></amazon:domain>`;
 
   return charityDescription;
+}
+
+function cleanupForVisualPresentation(input) {
+  const regex = /<.*?>/gi;
+  return input.replace(regex, '');
 }
