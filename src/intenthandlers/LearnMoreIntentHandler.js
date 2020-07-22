@@ -1,5 +1,6 @@
 const APL_CONSTANTS = require("constants/APL");
-const hasIn = require("immutable").hasIn;
+const charityManager = require("../charityManager");
+const utilities = require("../utilities");
 
 const charityDetailsDocument = require("apl/document/CharityDetailsDocument.json");
 const charityDetailsDatasource = require("apl/data/CharityDetailsDatasource");
@@ -42,7 +43,7 @@ function renderAdditionalDetails(handlerInput) {
 
   const alexaDonationPhrase = currentCharity.alexaDonationPhrase;
 
-  const charityAdditionalDetails = getAdditionalDetails(currentCharity);
+  const charityAdditionalDetails = charityManager.getAdditionalDetails(currentCharity);
   return responseBuilder
     .speak(
       `${charityAdditionalDetails} ${SOUND_EFFECT} Would you like to know how to donate to ${currentCharity.name}?`
@@ -55,71 +56,9 @@ function renderAdditionalDetails(handlerInput) {
       document: charityDetailsDocument,
       datasources: charityDetailsDatasource(
         currentCharity.name,
-        cleanupForVisualPresentation(charityAdditionalDetails),
+        utilities.cleanupForVisualPresentation(charityAdditionalDetails),
         `You can donate to them by saying, "${alexaDonationPhrase}"`
       )
     })
     .getResponse();
-}
-
-function getAdditionalDetails(charity) {
-  let charityDescription = `<amazon:domain name="conversational">Okay. </amazon:domain>`;
-
-  if (
-    hasIn(charity, [
-      "metadata",
-      "mission"
-    ]) && charity.metadata.mission !== null
-  ) {
-    if (
-      hasIn(charity, [
-        "metadata",
-        "category",
-        "categoryName"
-      ]) && charity.metadata.category.categoryName !== null
-    )
-      charityDescription += `<amazon:domain name="news">${charity.name} operates in the ${charity.metadata.category.categoryName} sector. </amazon:domain>`;
-
-    if (
-      hasIn(charity, [
-        "metadata",
-        "cause",
-        "causeName"
-      ]) && charity.metadata.cause.causeName !== null
-    )
-      charityDescription += `<amazon:domain name="news">focusing on ${charity.metadata.cause.causeName}. </amazon:domain>`;
-  }
-
-  if (
-    hasIn(charity, [
-      "metadata",
-      "mailingAddress",
-      "stateOrProvince"
-    ]) && charity.metadata.mailingAddress.stateOrProvince !== null && hasIn(charity, [
-      "metadata",
-      "mailingAddress",
-      "city"
-    ]) && charity.metadata.mailingAddress.city !== null
-  )
-    charityDescription += `<amazon:domain name="news">${charity.name} is based out of <say-as interpret-as="address">${charity.metadata.mailingAddress.city}, ${charity.metadata.mailingAddress.stateOrProvince}. </say-as></amazon:domain>`;
-
-  if (
-    hasIn(charity, [
-      "metadata",
-      "mailingAddress",
-      "streetAddress1"
-    ]) && charity.metadata.mailingAddress.streetAddress1 !== null && hasIn(charity, [
-      "metadata",
-      "mailingAddress",
-      "postalCode"
-    ]) && charity.metadata.mailingAddress.postalCode !== null
-  )
-    charityDescription += `<amazon:domain name="news">Their address is <say-as interpret-as="address">${charity.metadata.mailingAddress.streetAddress1}, ${charity.metadata.mailingAddress.postalCode}. </say-as></amazon:domain>`;
-
-  return charityDescription;
-}
-
-function cleanupForVisualPresentation(input) {
-  const regex = /<.*?>/gi;
-  return input.replace(regex, '');
 }
