@@ -2,7 +2,7 @@ const allCharities = require('../resources/data/UseThisDataForNow.json');
 const hasIn = require("immutable").hasIn;
 const utilities = require("./utilities");
 
-const CANDIDATE_CHARITY_ARRAY_SIZE = 50;
+const CANDIDATE_CHARITY_ARRAY_SIZE = 3;
 const MAX_ATTEMPTS_TO_BUILD_CANDIDATE_LIST = 1000;
 const PROBABILITY_OF_SPARSE_DETAIL_CHARITIES_BEING_SELECTED = 0.1;
 const PROBABILITY_OF_CANDIDATE_LIST_GETTING_REFRESHED = 0.95;
@@ -127,8 +127,9 @@ function refreshCandidateCharities() {
     console.log("Candidate charities being refreshed");
 
     let maxCharitiesToConsider = 0, richDetailCharities = 0, sparseDetailCharities = 0;
-    candidateCharities = new Array();
-    while (candidateCharities.length < CANDIDATE_CHARITY_ARRAY_SIZE && ++maxCharitiesToConsider < MAX_ATTEMPTS_TO_BUILD_CANDIDATE_LIST /* prevents infinite loop */) {
+
+    const map = new Map(); // This is to help us avoid picking the same charity multiple times.
+    while (map.size < CANDIDATE_CHARITY_ARRAY_SIZE && ++maxCharitiesToConsider < MAX_ATTEMPTS_TO_BUILD_CANDIDATE_LIST /* prevents infinite loop */) {
         const random = Math.random();
         const randomCandidate = allCharities[Math.floor(Math.random() * allCharities.length)];
 
@@ -140,13 +141,14 @@ function refreshCandidateCharities() {
             ]) && randomCandidate.metadata.mission !== null && random >= PROBABILITY_OF_SPARSE_DETAIL_CHARITIES_BEING_SELECTED
         ) {
             richDetailCharities++;
-            candidateCharities.push(randomCandidate);
+            map.set(randomCandidate.name, randomCandidate);
         }
         else if (random < PROBABILITY_OF_SPARSE_DETAIL_CHARITIES_BEING_SELECTED) {
             sparseDetailCharities++;
-            candidateCharities.push(randomCandidate);
+            map.set(randomCandidate.name, randomCandidate);
         }
     }
 
+    candidateCharities = [...map.keys()];
     console.log(`A candidate charity list of size ${candidateCharities.length} was built after considering ${maxCharitiesToConsider} charities. It contains a total of ${richDetailCharities} rich detailed charities and ${sparseDetailCharities} sparse detailed charities.`);
 }

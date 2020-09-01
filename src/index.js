@@ -19,6 +19,21 @@ const ResponseSanitizationInterceptor = require("interceptors/ResponseSanitizati
 
 const ErrorHandler = require("errors/ErrorHandler");
 
+// ***************************************************************************************************
+// These simple interceptors just log the incoming and outgoing request bodies to assist in debugging.
+
+const LogRequestInterceptor = {
+  process(handlerInput) {
+    console.log(`REQUEST ENVELOPE = ${JSON.stringify(handlerInput.requestEnvelope)}`);
+  },
+};
+
+const LogResponseInterceptor = {
+  process(handlerInput, response) {
+    console.log(`RESPONSE = ${JSON.stringify(response)}`);
+  },
+};
+
 // --------------- Skill Initialization -----------------------
 let skill;
 
@@ -35,9 +50,12 @@ exports.handler = async function (event, context) {
         HelpIntentHandler,
         SessionEndedRequestHandler
       )
+      .addResponseInterceptors(
+        LogResponseInterceptor)
       .addRequestInterceptors(
         NavigateCharitiesInitializationInterceptor,
-        APLSupportVerificationInterceptor
+        APLSupportVerificationInterceptor,
+        LogRequestInterceptor,
       )
       .addResponseInterceptors(ResponseSanitizationInterceptor)
       .addErrorHandlers(ErrorHandler)
