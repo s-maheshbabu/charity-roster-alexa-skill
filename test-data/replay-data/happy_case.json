@@ -1,0 +1,10 @@
+{
+  "skillId": "amzn1.ask.skill.916edbcf-e7fd-4d8e-be91-bb3da117e526",
+  "locale": "en-US",
+  "type": "text",
+  "userInput": [
+    "open charity roster",
+    "yes",
+    ".quit"
+  ]
+}

@@ -149,6 +149,6 @@ function refreshCandidateCharities() {
         }
     }
 
-    candidateCharities = [...map.keys()];
+    candidateCharities = [...map.values()];
     console.log(`A candidate charity list of size ${candidateCharities.length} was built after considering ${maxCharitiesToConsider} charities. It contains a total of ${richDetailCharities} rich detailed charities and ${sparseDetailCharities} sparse detailed charities.`);
 }
