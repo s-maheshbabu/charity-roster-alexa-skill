@@ -36,6 +36,47 @@ const getSlots = (handlerInput) => {
     }
 }
 
+const getFirstResolvedEntityValue = (element) => {
+    const [firstResolution = {}] = element.resolutions.resolutionsPerAuthority || [];
+    return firstResolution && firstResolution.status.code === 'ER_SUCCESS_MATCH'
+        ? firstResolution.values[0].value.name
+        : null;
+};
+
+const getFirstResolvedEntityId = (element) => {
+    const [firstResolution = {}] = element.resolutions.resolutionsPerAuthority || [];
+    return firstResolution && firstResolution.status.code === 'ER_SUCCESS_MATCH'
+        ? firstResolution.values[0].value.id
+        : null;
+};
+
+const getReadableSlotValue = (requestEnvelope, slotName) => {
+    const rootSlotValue = Alexa.getSlotValueV2(requestEnvelope, slotName);
+    const slotValueStr = !rootSlotValue
+        ? 'None'
+        : Alexa.getSimpleSlotValues(rootSlotValue)
+            .map(
+                (slotValue) =>
+                    getFirstResolvedEntityValue(slotValue) || `${slotValue.value}`
+            )
+            .join(' ');
+    console.log(JSON.stringify(Alexa.getSimpleSlotValues(rootSlotValue)))
+    return `${slotName} ${slotValueStr}`;
+};
+
+const getReadableSlotId = (requestEnvelope, slotName) => {
+    const rootSlotValue = Alexa.getSlotValueV2(requestEnvelope, slotName);
+    const slotIdStr = !rootSlotValue
+        ? 'None'
+        : Alexa.getSimpleSlotValues(rootSlotValue)
+            .map(
+                (slotValue) =>
+                    getFirstResolvedEntityId(slotValue) || `${slotValue.id}`
+            )
+            .join(' ');
+    return `${slotIdStr}`;
+};
+
 const shuffle = (array) => {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -77,5 +118,6 @@ module.exports = {
     shuffle: shuffle,
     cleanupForVisualPresentation: cleanupForVisualPresentation,
     asyncForEach: asyncForEach,
+    getFirstResolvedEntityId: getFirstResolvedEntityId,
 };
 
