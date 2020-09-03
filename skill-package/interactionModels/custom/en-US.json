@@ -28,15 +28,15 @@
           "name": "AMAZON.NextIntent",
           "samples": [
             "go to the next one",
+            "I would prefer something else",
+            "let us look at something else",
             "next charity",
             "not interested in this one",
             "skip this charity",
             "skip this one",
-            "let us look at something else",
-            "tell me about something else",
-            "I would prefer something else",
             "tell me about a different charity",
-            "tell me about a different one"
+            "tell me about a different one",
+            "tell me about something else"
           ]
         },
         {
@@ -74,47 +74,83 @@
             "tell me more about this one",
             "tell me more"
           ]
-        },
-        {
-          "name": "NavigateCharitiesIntent",
-          "slots": [
-            {
-              "name": "Category",
-              "type": "CharityCategoryType"
-            }
-          ],
-          "samples": [
-            "list {Category} charities",
-            "list a few {Category} charities that I can donate to",
-            "list a few {Category} charities",
-            "list a few charities that I can donate to",
-            "list a few charities",
-            "list charities",
-            "list some {Category} charities that I can donate to",
-            "list some {Category} charities",
-            "list some charities that I can donate to",
-            "list some charities",
-            "recommend {Category} charities",
-            "recommend charities",
-            "recommend me some {Category} charities",
-            "recommend me some charities",
-            "tell about some {Category} charities",
-            "tell about some charities",
-            "tell me about some {Category} charities that I can donate to",
-            "tell me about some charities that I can donate to"
-          ]
         }
       ],
       "types": [
         {
-          "name": "CharityCategoryType",
+          "name": "AlexaIntegrationType",
           "values": [
             {
+              "id": "NOT_ALEXA_INTEGRATED",
               "name": {
-                "value": "Animals"
+                "value": "Not Alexa Integrated",
+                "synonyms": [
+                  "anything works",
+                  "anything works",
+                  "does not matter",
+                  "doesn't matter",
+                  "i don't care",
+                  "just about anything",
+                  "no alexa support",
+                  "not alexa integrated",
+                  "not alexa supported",
+                  "not necessarily alexa integrated"
+                ]
               }
             },
             {
+              "id": "ALEXA_INTEGRATED",
+              "name": {
+                "value": "Alexa Integrated",
+                "synonyms": [
+                  "alexa integrated",
+                  "alexa supported",
+                  "can accept alexa donations",
+                  "can take donations through alexa",
+                  "donate through alexa",
+                  "integrated with alexa",
+                  "supported by alexa",
+                  "supports donations through alexa"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "CharityCategoryType",
+          "values": [
+            {
+              "id": "ALL",
+              "name": {
+                "value": "All Charities",
+                "synonyms": [
+                  "all categories",
+                  "all charities",
+                  "all",
+                  "any charity works for me",
+                  "any charity works",
+                  "any charity",
+                  "any",
+                  "doesn't matter",
+                  "don't care",
+                  "i don't care",
+                  "it doesn't matter",
+                  "just about anything"
+                ]
+              }
+            },
+            {
+              "id": "1",
+              "name": {
+                "value": "Animals",
+                "synonyms": [
+                  "animals",
+                  "animal welfare"
+                ]
+              }
+            },
+            {
+              "id": "2",
               "name": {
                 "value": "Arts Culture and Humanities",
                 "synonyms": [
@@ -126,6 +162,7 @@
               }
             },
             {
+              "id": "10",
               "name": {
                 "value": "Community Development",
                 "synonyms": [
@@ -134,16 +171,25 @@
               }
             },
             {
+              "id": "3",
               "name": {
                 "value": "Education"
               }
             },
             {
+              "id": "4",
               "name": {
-                "value": "Environment"
+                "value": "Environment",
+                "synonyms": [
+                  "Climate Change",
+                  "Climate",
+                  "Global Warming",
+                  "Weather"
+                ]
               }
             },
             {
+              "id": "8",
               "name": {
                 "value": "Human and Civil Rights",
                 "synonyms": [
@@ -154,34 +200,94 @@
               }
             },
             {
+              "id": "6",
               "name": {
                 "value": "Human Services"
               }
             },
             {
+              "id": "5",
               "name": {
                 "value": "Health"
               }
             },
             {
+              "id": "7",
               "name": {
                 "value": "International"
               }
             },
             {
+              "id": "9",
               "name": {
                 "value": "Religion",
                 "synonyms": [
+                  "Christianity",
+                  "Christians",
+                  "Church",
+                  "Churches",
+                  "Hindu",
+                  "Hinduism",
+                  "Islam",
                   "Religion"
                 ]
               }
             },
             {
+              "id": "11",
               "name": {
                 "value": "Research and Public Policy",
                 "synonyms": [
                   "Public Policy",
                   "Research"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "StringLiteral",
+          "values": [
+            {
+              "name": {
+                "value": "dummy value for api response literal property"
+              }
+            }
+          ]
+        },
+        {
+          "name": "DeductibilityType",
+          "values": [
+            {
+              "id": "NON_DEDUCTIBLE",
+              "name": {
+                "value": "Not Tax Deductible",
+                "synonyms": [
+                  "doesn't have to be tax deductible",
+                  "doesn't matter",
+                  "doesn't really matter",
+                  "i don't care",
+                  "just about anything",
+                  "no tax benefits",
+                  "no tax exemption",
+                  "not necessarily tax deductible",
+                  "not tax deductible",
+                  "not tax exempted"
+                ]
+              }
+            },
+            {
+              "id": "DEDUCTIBLE",
+              "name": {
+                "value": "Tax Deductible",
+                "synonyms": [
+                  "deductible",
+                  "eligible for tax deduction",
+                  "irs deductible",
+                  "tax deductible",
+                  "tax exempt charities",
+                  "tax exempt organizations",
+                  "tax exempt"
                 ]
               }
             }
