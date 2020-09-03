@@ -1,6 +1,5 @@
 const utilities = require("../utilities");
 
-
 module.exports = FindCharityAPI = {
   canHandle(handlerInput) {
     return utilities.isApiRequest(handlerInput, 'FindCharityAPI');
