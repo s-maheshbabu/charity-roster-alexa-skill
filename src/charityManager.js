@@ -2,11 +2,22 @@ const allCharities = require('../resources/data/UseThisDataForNow.json');
 const hasIn = require("immutable").hasIn;
 const utilities = require("./utilities");
 
+const DEDUCTIBLE = 'Contributions are deductible';
+
 const CANDIDATE_CHARITY_ARRAY_SIZE = 3;
 const MAX_ATTEMPTS_TO_BUILD_CANDIDATE_LIST = 1000;
 const PROBABILITY_OF_SPARSE_DETAIL_CHARITIES_BEING_SELECTED = 0.1;
 const PROBABILITY_OF_CANDIDATE_LIST_GETTING_REFRESHED = 0.95;
 var candidateCharities = allCharities;
+
+module.exports.findCharities = (category, isTaxDeductible) => {
+    console.log(`Search criteria: Category = ${category} and Tax Deductibility = ${isTaxDeductible}`);
+
+    const toBeReturned = [];
+
+    if (isTaxDeductible) return allCharities.filter(charity => charity.metadata.irsClassification.deductibility === DEDUCTIBLE);
+    else return toBeReturned;
+}
 
 /**
  * Doc

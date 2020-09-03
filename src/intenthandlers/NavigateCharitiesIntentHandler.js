@@ -1,4 +1,5 @@
-const charityManager = require("../charityManager");
+const AlexaCharitiesGateway = require("../charityManager");
+const AllCharitiesGateway = require("../AllCharitiesGatetway");
 const nextCharityIntentHandler = require("intenthandlers/NextCharityIntentHandler");
 
 const NavigateCharitiesIntentHandler = {
@@ -9,7 +10,7 @@ const NavigateCharitiesIntentHandler = {
         handlerInput.requestEnvelope.request.intent.name === "NavigateCharitiesIntent")
     );
   },
-  handle(handlerInput) {
+  async handle(handlerInput) {
     return navigateCharities(handlerInput);
   }
 };
@@ -19,12 +20,22 @@ module.exports = NavigateCharitiesIntentHandler;
 /**
  * Pronounces the word or informs the user that no word exists with the spelling.
  */
-function navigateCharities(handlerInput) {
+async function navigateCharities(handlerInput) {
   const { attributesManager } = handlerInput;
 
   const sessionAttributes = attributesManager.getSessionAttributes() || {};
-  sessionAttributes.charities = charityManager.getRandomCharities();
+  const isAlexaIntegrated = sessionAttributes.isAlexaIntegrated || false;
+  const isTaxDeductible = sessionAttributes.isTaxDeductible || true;
+  const category = sessionAttributes.category || null;
+
+  if (isAlexaIntegrated) {
+    sessionAttributes.charities = AlexaCharitiesGateway.findCharities(category, isTaxDeductible);
+  }
+  else {
+    sessionAttributes.charities = await AllCharitiesGateway.findCharities(category, isTaxDeductible);
+  }
   attributesManager.setSessionAttributes(sessionAttributes);
+  console.log(`Charities that will be presented to the user: ${JSON.stringify(sessionAttributes.charities)}`);
 
   return nextCharityIntentHandler.handle(handlerInput);
 }

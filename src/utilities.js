@@ -60,11 +60,22 @@ const cleanupForVisualPresentation = (input) => {
     return input.replace(regex, '');
 };
 
+async function asyncForEach(array, callback) {
+    for (let index = 0; index < array.length; index++) {
+        try {
+            await callback(array[index], index, array);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+};
+
 module.exports = {
     isApiRequest: isApiRequest,
     getApiArguments: getApiArguments,
     getSlots: getSlots,
     shuffle: shuffle,
     cleanupForVisualPresentation: cleanupForVisualPresentation,
+    asyncForEach: asyncForEach,
 };
 

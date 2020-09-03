@@ -9,7 +9,9 @@ module.exports = FindCharityAPI = {
 
     const { attributesManager } = handlerInput;
     const sessionAttributes = attributesManager.getSessionAttributes();
-    sessionAttributes.category = apiArguments.category;
+    sessionAttributes.category = getCategory(apiArguments.Category);
+    sessionAttributes.isAlexaIntegrated = isAlexaIntegrated(apiArguments.AlexaIntegration);
+    sessionAttributes.isTaxDeductible = isTaxDeductible(apiArguments.Deductibility);
 
     // Sticking the search filters in context just for testing purposes.
     const { context } = handlerInput;
@@ -34,4 +36,16 @@ module.exports = FindCharityAPI = {
       apiResponse: {}
     }
   }
+}
+
+function getCategory(category) {
+  return category;
+}
+
+function isAlexaIntegrated(alexaIntegration) {
+  return false;
+}
+
+function isTaxDeductible(deductibility) {
+  return true;
 }
