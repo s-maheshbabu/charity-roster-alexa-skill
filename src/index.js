@@ -3,6 +3,7 @@ require("app-module-path").addPath(__dirname);
 const Alexa = require("ask-sdk-core");
 
 const FindCharityAPI = require("api/FindCharityAPI");
+const GetCategoriesAPI = require("api/GetCategoriesAPI");
 
 const NavigateCharitiesIntentHandler = require("intenthandlers/NavigateCharitiesIntentHandler");
 const CancelAndStopIntentHandler = require("intenthandlers/CancelAndStopIntentHandler");
@@ -52,6 +53,7 @@ exports.handler = async function (event, context) {
         HelpIntentHandler,
         SessionEndedRequestHandler,
         FindCharityAPI,
+        GetCategoriesAPI,
       )
       .addResponseInterceptors(
         LogResponseInterceptor)
