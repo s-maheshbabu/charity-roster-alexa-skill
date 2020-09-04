@@ -23,14 +23,10 @@ module.exports = GetCategoriesAPI = {
 
     if (!charityCategorySlot) throw new ReferenceError("Unexpected skill model. Unable to find path to slots.");
     const charityCategories = charityCategorySlot.values;
+    const categoryNames = charityCategories.map(a => a.name.value);
+    const supportedCharitiesConcatenated = categoryNames.slice(0, -1).join(', ') + ' and ' + categoryNames.slice(-1);
 
-    let supportedCharities = 'All charities, ';
-    for (let index = 0; index < charityCategories.length; index++) {
-      const category = charityCategories[index];
-      supportedCharities += category.name.value + ', '
-    }
-
-    const response = 'The supported categories are: ' + supportedCharities
+    const response = 'The supported categories are: ' + supportedCharitiesConcatenated
     return {
       apiResponse: {
         response
