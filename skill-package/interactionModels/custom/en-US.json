@@ -85,13 +85,24 @@
               "name": {
                 "value": "Not Alexa Integrated",
                 "synonyms": [
+                  "alexa integration not needed",
+                  "alexa support not needed",
+                  "all charities",
+                  "any charity",
                   "anything works",
                   "anything works",
                   "does not matter",
                   "doesn't matter",
+                  "don't have a preference",
+                  "don't have any preferences",
+                  "general",
                   "i don't care",
+                  "i don't have a preference",
+                  "i don't have any preferences",
                   "just about anything",
                   "no alexa support",
+                  "no preference",
+                  "no preferences",
                   "not alexa integrated",
                   "not alexa supported",
                   "not necessarily alexa integrated"
@@ -103,14 +114,21 @@
               "name": {
                 "value": "Alexa Integrated",
                 "synonyms": [
+                  "alexa integrated charities",
                   "alexa integrated",
+                  "alexa supported charities",
                   "alexa supported",
                   "can accept alexa donations",
+                  "can make donations through alexa",
                   "can take donations through alexa",
+                  "charities supported by alexa",
+                  "charities that are integrated with alexa",
                   "donate through alexa",
                   "integrated with alexa",
                   "supported by alexa",
-                  "supports donations through alexa"
+                  "supports donations through alexa",
+                  "that accept alexa donations",
+                  "that accept donations through alexa"
                 ]
               }
             }
@@ -133,9 +151,19 @@
                   "any",
                   "doesn't matter",
                   "don't care",
+                  "don't have a preference",
+                  "don't have any preferences",
+                  "general",
+                  "i don't care about the categories",
                   "i don't care",
+                  "i don't have a category in mind",
+                  "i don't have a preference",
+                  "i don't have any preferences",
                   "it doesn't matter",
-                  "just about anything"
+                  "it really doesn't matter",
+                  "just about anything",
+                  "no preference",
+                  "no preferences"
                 ]
               }
             },
@@ -155,6 +183,7 @@
                 "value": "Arts Culture and Humanities",
                 "synonyms": [
                   "Arts",
+                  "Arts and Culture",
                   "Culture",
                   "Humanities",
                   "Humanity"
@@ -166,6 +195,8 @@
               "name": {
                 "value": "Community Development",
                 "synonyms": [
+                  "Community",
+                  "Development",
                   "Social"
                 ]
               }
@@ -246,16 +277,6 @@
           ]
         },
         {
-          "name": "StringLiteral",
-          "values": [
-            {
-              "name": {
-                "value": "dummy value for api response literal property"
-              }
-            }
-          ]
-        },
-        {
           "name": "DeductibilityType",
           "values": [
             {
@@ -263,11 +284,35 @@
               "name": {
                 "value": "Not Tax Deductible",
                 "synonyms": [
+                  "all charities",
+                  "all",
+                  "any charity works for me",
+                  "any charity works",
+                  "any charity",
+                  "any tax policy",
+                  "any taxation",
+                  "any",
+                  "doesn't have to be deductible",
                   "doesn't have to be tax deductible",
                   "doesn't matter",
                   "doesn't really matter",
+                  "don't care",
+                  "don't have a preference",
+                  "don't have any preferences",
+                  "general",
+                  "i don't care about deductibility",
+                  "i don't care about tax deductibility",
+                  "i don't care about the taxation",
                   "i don't care",
+                  "i don't have a category in mind",
+                  "i don't have a preference",
+                  "i don't have any preferences",
+                  "i don't mind paying tax",
+                  "it doesn't matter",
+                  "it really doesn't matter",
                   "just about anything",
+                  "no preference",
+                  "no preferences",
                   "no tax benefits",
                   "no tax exemption",
                   "not necessarily tax deductible",
@@ -289,6 +334,16 @@
                   "tax exempt organizations",
                   "tax exempt"
                 ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "StringLiteral",
+          "values": [
+            {
+              "name": {
+                "value": "dummy value for api response literal property"
               }
             }
           ]
