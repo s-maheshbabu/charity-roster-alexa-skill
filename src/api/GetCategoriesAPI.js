@@ -26,11 +26,8 @@ module.exports = GetCategoriesAPI = {
     const categoryNames = charityCategories.map(a => a.name.value);
     const supportedCharitiesConcatenated = categoryNames.slice(0, -1).join(', ') + ' and ' + categoryNames.slice(-1);
 
-    const response = 'The supported categories are: ' + supportedCharitiesConcatenated
     return {
-      apiResponse: {
-        response
-      }
+      apiResponse: `The supported categories are: ${supportedCharitiesConcatenated}`
     };
   }
 }

@@ -26,13 +26,13 @@ async function navigateCharities(handlerInput) {
   const sessionAttributes = attributesManager.getSessionAttributes() || {};
   const isAlexaIntegrated = sessionAttributes.isAlexaIntegrated || false;
   const isTaxDeductible = sessionAttributes.isTaxDeductible || true;
-  const category = sessionAttributes.category || null;
+  const categoryId = sessionAttributes.categoryId || null;
 
   if (isAlexaIntegrated) {
-    sessionAttributes.charities = AlexaCharitiesGateway.findCharities(category, isTaxDeductible);
+    sessionAttributes.charities = AlexaCharitiesGateway.findCharities(categoryId, isTaxDeductible);
   }
   else {
-    sessionAttributes.charities = await AllCharitiesGateway.findCharities(category, isTaxDeductible);
+    sessionAttributes.charities = await AllCharitiesGateway.findCharities(categoryId, isTaxDeductible);
   }
   attributesManager.setSessionAttributes(sessionAttributes);
   console.log(`Charities that will be presented to the user: ${JSON.stringify(sessionAttributes.charities)}`);
