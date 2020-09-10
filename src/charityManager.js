@@ -15,7 +15,7 @@ module.exports.findCharities = (categoryId, isTaxDeductible) => {
 
     const toBeReturned = [];
 
-    if (isTaxDeductible) return alexaCharities.filter(charity => charity.metadata.irsClassification.deductibility === DEDUCTIBLE);
+    if (isTaxDeductible) return alexaCharities.filter(charity => charity.metadata.irsClassification.deductibility === DEDUCTIBLE).slice(0, 4);
     else return toBeReturned;
 }
 
