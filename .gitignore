@@ -41,3 +41,6 @@ dist
 
 # Optional REPL history
 .node_repl_history
+
+# Mac system file
+**/.DS_Store
